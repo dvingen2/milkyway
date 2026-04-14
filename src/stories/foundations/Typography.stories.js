@@ -34,7 +34,7 @@ export const Ramp = {
             <h2 style="margin:0;font:var(--type-headline-large);">MD3 ramp, system fonts, zero letter-spacing</h2>
             <p class="lede">The ramp follows the Material 3 sizing model, but this system intentionally strips all letter-spacing.</p>
           </div>
-          <ds-card variant="filled">
+          <mw-card variant="filled">
             <div style="display:grid;gap:1rem;">
               ${styles
                 .map(
@@ -47,7 +47,7 @@ export const Ramp = {
                 )
                 .join("")}
             </div>
-          </ds-card>
+          </mw-card>
         </div>
       </section>
     `),

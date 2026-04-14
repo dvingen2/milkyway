@@ -16,6 +16,15 @@ import "./components/ui-top-app-bar.js";
 import "./components/ui-checkbox.js";
 import "./components/ui-radio.js";
 import "./components/ui-switch.js";
+import "./components/ui-fab.js";
+import "./components/ui-extended-fab.js";
+import "./components/ui-tooltip.js";
+import "./components/ui-slider.js";
+import "./components/ui-segmented-button.js";
+import "./components/ui-select.js";
+import "./components/ui-navigation-bar.js";
+import "./components/ui-bottom-sheet.js";
+import "./components/ui-side-sheet.js";
 import {
   colorRoles,
   colorCustomizationGuidance,
@@ -40,15 +49,15 @@ if (grid) {
   grid.innerHTML = sections
     .map(
       (section) => `
-        <ds-card variant="filled">
+        <mw-card variant="filled">
           <p class="eyebrow">Modul</p>
           <h3>${section.title}</h3>
           <p>${section.summary}</p>
           <div class="project-meta">
-            ${section.tags.map((tag) => `<ds-chip kind="filter">${tag}</ds-chip>`).join("")}
+            ${section.tags.map((tag) => `<mw-chip kind="filter">${tag}</mw-chip>`).join("")}
           </div>
-          <ds-button variant="text" href="#fundament">Utforsk dokumentasjonen</ds-button>
-        </ds-card>
+          <mw-button variant="text" href="#fundament">Utforsk dokumentasjonen</mw-button>
+        </mw-card>
       `,
     )
     .join("");
@@ -58,7 +67,7 @@ if (keyColorGrid) {
   keyColorGrid.innerHTML = keyColors
     .map(
       (swatch) => `
-        <ds-card variant="outlined">
+        <mw-card variant="outlined">
           <div class="swatch-chip" style="background: var(${swatch.token});"></div>
           <div class="swatch-meta">
             <p class="swatch-name">${swatch.name}</p>
@@ -66,7 +75,7 @@ if (keyColorGrid) {
             <p class="swatch-value">${swatch.value}</p>
             <p class="swatch-value">${swatch.purpose}</p>
           </div>
-        </ds-card>
+        </mw-card>
       `,
     )
     .join("");
@@ -76,7 +85,7 @@ if (tonalPaletteGrid) {
   tonalPaletteGrid.innerHTML = tonalPalettes
     .map(
       (palette) => `
-        <ds-card variant="outlined">
+        <mw-card variant="outlined">
           <div class="palette-header">
             <p class="swatch-name">${palette.name}</p>
             <p class="swatch-value"><code>${palette.prefix}*</code></p>
@@ -93,7 +102,7 @@ if (tonalPaletteGrid) {
               )
               .join("")}
           </div>
-        </ds-card>
+        </mw-card>
       `,
     )
     .join("");
@@ -103,7 +112,7 @@ if (roleGrid) {
   roleGrid.innerHTML = colorRoles
     .map(
       (role) => `
-        <ds-card variant="outlined">
+        <mw-card variant="outlined">
           <div class="role-swatch" style="background: var(${role.token}); color: var(${role.onToken});">
             <div class="role-swatch-label">${role.name}</div>
           </div>
@@ -112,7 +121,7 @@ if (roleGrid) {
             <p class="role-value"><code>${role.token}</code></p>
             <p class="role-value">Foreground: <code>${role.onToken}</code></p>
           </div>
-        </ds-card>
+        </mw-card>
       `,
     )
     .join("");
@@ -122,7 +131,7 @@ if (stateGrid) {
   stateGrid.innerHTML = stateLayers
     .map(
       (state) => `
-        <ds-card variant="outlined">
+        <mw-card variant="outlined">
           <div class="state-preview">
             <div class="state-preview-shell">
               <div class="state-preview-base">Base surface</div>
@@ -136,7 +145,7 @@ if (stateGrid) {
           <h3>${state.name}</h3>
           <p><code>${state.token}</code></p>
           <p>${state.description}</p>
-        </ds-card>
+        </mw-card>
       `,
     )
     .join("");
@@ -146,10 +155,10 @@ if (principleList) {
   principleList.innerHTML = componentPrinciples
     .map(
       (principle) => `
-        <ds-card variant="outlined" class="principle-item">
+        <mw-card variant="outlined" class="principle-item">
           <h3>${principle.title}</h3>
           <p>${principle.body}</p>
-        </ds-card>
+        </mw-card>
       `,
     )
     .join("");
@@ -159,35 +168,35 @@ if (componentReferenceList) {
   const previews = {
     button: `
       <div class="component-preview-row">
-        <ds-button variant="filled">Filled</ds-button>
-        <ds-button variant="tonal">Tonal</ds-button>
-        <ds-button variant="outlined">Outlined</ds-button>
-        <ds-button variant="text">Text</ds-button>
-        <ds-button variant="destructive">Destructive</ds-button>
+        <mw-button variant="filled">Filled</mw-button>
+        <mw-button variant="tonal">Tonal</mw-button>
+        <mw-button variant="outlined">Outlined</mw-button>
+        <mw-button variant="text">Text</mw-button>
+        <mw-button variant="destructive">Destructive</mw-button>
       </div>
     `,
     "icon-button": `
       <div class="component-preview-row">
-        <ds-icon-button variant="standard" toggle selected aria-label="Lagre" title="Lagre">★</ds-icon-button>
-        <ds-icon-button variant="filled" aria-label="Opprett" title="Opprett">＋</ds-icon-button>
-        <ds-icon-button variant="tonal" toggle aria-label="Varsler" title="Varsler">◌</ds-icon-button>
-        <ds-icon-button variant="outlined" aria-label="Søk" title="Søk">⌕</ds-icon-button>
+        <mw-icon-button variant="standard" toggle selected aria-label="Lagre" title="Lagre">★</mw-icon-button>
+        <mw-icon-button variant="filled" aria-label="Opprett" title="Opprett">＋</mw-icon-button>
+        <mw-icon-button variant="tonal" toggle aria-label="Varsler" title="Varsler">◌</mw-icon-button>
+        <mw-icon-button variant="outlined" aria-label="Søk" title="Søk">⌕</mw-icon-button>
       </div>
     `,
     chip: `
       <div class="component-preview-row">
-        <ds-chip kind="assist" leading-icon="⌘">Assist</ds-chip>
-        <ds-chip kind="filter" selected>Valgt filter</ds-chip>
-        <ds-chip kind="input" dismissible>Input token</ds-chip>
-        <ds-chip kind="suggestion" leading-icon="◎">Suggestion</ds-chip>
+        <mw-chip kind="assist" leading-icon="⌘">Assist</mw-chip>
+        <mw-chip kind="filter" selected>Valgt filter</mw-chip>
+        <mw-chip kind="input" dismissible>Input token</mw-chip>
+        <mw-chip kind="suggestion" leading-icon="◎">Suggestion</mw-chip>
       </div>
     `,
     "text-field": `
       <div class="component-preview-row" style="width: 100%;">
-        <ds-text-field label="Token group" leading="◫" trailing="✓" helper="Alias layer" value="Surface hierarchy"></ds-text-field>
+        <mw-text-field label="Token group" leading="◫" trailing="✓" helper="Alias layer" value="Surface hierarchy"></mw-text-field>
       </div>
       <div class="component-preview-row" style="width: 100%;">
-        <ds-text-field label="Documentation note" multiline helper="Multiline note" value="Surface-nivåene skiller ambient base fra primære og sekundære innholdsflater."></ds-text-field>
+        <mw-text-field label="Documentation note" multiline helper="Multiline note" value="Surface-nivåene skiller ambient base fra primære og sekundære innholdsflater."></mw-text-field>
       </div>
     `,
   };
@@ -195,7 +204,7 @@ if (componentReferenceList) {
   componentReferenceList.innerHTML = componentReferences
     .map(
         (component) => `
-        <ds-card variant="elevated" class="component-reference-card">
+        <mw-card variant="elevated" class="component-reference-card">
           <div class="component-reference-header">
             <div>
               <p class="card-label">Component Reference</p>
@@ -205,50 +214,50 @@ if (componentReferenceList) {
           </div>
 
           <div class="component-reference-meta">
-            <ds-card variant="outlined" class="component-meta-card">
+            <mw-card variant="outlined" class="component-meta-card">
               <p class="component-meta-label">Purpose</p>
               <p>${component.purpose}</p>
-            </ds-card>
-            <ds-card variant="outlined" class="component-meta-card">
+            </mw-card>
+            <mw-card variant="outlined" class="component-meta-card">
               <p class="component-meta-label">Variants</p>
               <p>${component.variants.length}</p>
-            </ds-card>
-            <ds-card variant="outlined" class="component-meta-card">
+            </mw-card>
+            <mw-card variant="outlined" class="component-meta-card">
               <p class="component-meta-label">States</p>
               <p>${component.states.join(", ")}</p>
-            </ds-card>
+            </mw-card>
           </div>
 
           <div class="component-reference-body">
             <div class="component-reference-column">
-              <ds-card variant="outlined" class="component-spec-block">
+              <mw-card variant="outlined" class="component-spec-block">
                 <h4>Anatomy</h4>
                 <ol class="component-anatomy-list">
                   ${component.anatomy.map((item) => `<li>${item}</li>`).join("")}
                 </ol>
-              </ds-card>
-              <ds-card variant="outlined" class="component-spec-block">
+              </mw-card>
+              <mw-card variant="outlined" class="component-spec-block">
                 <h4>Variants</h4>
                 <ul class="component-variant-list">
                   ${component.variants.map((item) => `<li>${item}</li>`).join("")}
                 </ul>
-              </ds-card>
-              <ds-card variant="outlined" class="component-spec-block">
+              </mw-card>
+              <mw-card variant="outlined" class="component-spec-block">
                 <h4>State Intent</h4>
                 <ul class="component-state-list">
                   ${component.states.map((item) => `<li>${item}</li>`).join("")}
                 </ul>
-              </ds-card>
+              </mw-card>
             </div>
 
             <div class="component-reference-column">
-              <ds-card variant="outlined" class="component-preview">
+              <mw-card variant="outlined" class="component-preview">
                 <h4>Preview</h4>
                 ${previews[component.preview] || ""}
-              </ds-card>
+              </mw-card>
             </div>
           </div>
-        </ds-card>
+        </mw-card>
       `,
     )
     .join("");

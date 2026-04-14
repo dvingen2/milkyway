@@ -133,7 +133,7 @@ main {
   gap: var(--space-4);
 }
 
-/* .hero-card/.info-card/.note-card/.demo-card are now ds-card elements — layout only below */
+/* .hero-card/.info-card/.note-card/.demo-card are now mw-card elements — layout only below */
 
 .hero-card {
   padding: var(--space-5);

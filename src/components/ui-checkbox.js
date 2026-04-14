@@ -79,7 +79,7 @@ checkboxTemplate.innerHTML = `
   </label>
 `;
 
-export class DsCheckbox extends HTMLElement {
+export class MwCheckbox extends HTMLElement {
   static formAssociated = true;
 
   constructor() {
@@ -138,4 +138,4 @@ export class DsCheckbox extends HTMLElement {
   }
 }
 
-customElements.define("ds-checkbox", DsCheckbox);
+customElements.define("mw-checkbox", MwCheckbox);

@@ -24,7 +24,7 @@ export default {
     renderHTML(`
       <div style="width:24rem;display:grid;gap:1rem;">
         <p style="margin:0;">Before divider</p>
-        <ds-divider${variant ? ` variant="${variant}"` : ""}></ds-divider>
+        <mw-divider${variant ? ` variant="${variant}"` : ""}></mw-divider>
         <p style="margin:0;">After divider</p>
       </div>
     `),
@@ -39,15 +39,15 @@ export const AllVariants = {
       <div style="display:grid;gap:2rem;width:24rem;">
         <div style="display:grid;gap:0.75rem;">
           <p style="font:var(--type-label-medium);color:var(--color-on-surface-variant);margin:0;">Full-bleed (default)</p>
-          <ds-divider></ds-divider>
+          <mw-divider></mw-divider>
         </div>
         <div style="display:grid;gap:0.75rem;">
           <p style="font:var(--type-label-medium);color:var(--color-on-surface-variant);margin:0;">Inset</p>
-          <ds-divider variant="inset"></ds-divider>
+          <mw-divider variant="inset"></mw-divider>
         </div>
         <div style="display:grid;gap:0.75rem;">
           <p style="font:var(--type-label-medium);color:var(--color-on-surface-variant);margin:0;">Middle</p>
-          <ds-divider variant="middle"></ds-divider>
+          <mw-divider variant="middle"></mw-divider>
         </div>
       </div>
     `),
@@ -68,15 +68,15 @@ export const InList = {
         <div style="padding:1rem;">
           <p style="font:var(--type-label-large);color:var(--color-on-surface-variant);margin:0;">Primary palette</p>
         </div>
-        <ds-divider></ds-divider>
+        <mw-divider></mw-divider>
         <div style="padding:1rem;">
           <p style="margin:0;">Primary — <code>--color-primary</code></p>
         </div>
-        <ds-divider variant="inset"></ds-divider>
+        <mw-divider variant="inset"></mw-divider>
         <div style="padding:1rem;">
           <p style="margin:0;">On Primary — <code>--color-on-primary</code></p>
         </div>
-        <ds-divider variant="inset"></ds-divider>
+        <mw-divider variant="inset"></mw-divider>
         <div style="padding:1rem;">
           <p style="margin:0;">Primary Container — <code>--color-primary-container</code></p>
         </div>

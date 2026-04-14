@@ -20,7 +20,7 @@ export const SpacingAndRadius = {
             <p class="lede">Spacing is tokenized globally. Shape is intentionally light-touch for now, with a few reusable radii and full pills where interaction wants it.</p>
           </div>
           <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;">
-            <ds-card variant="outlined">
+            <mw-card variant="outlined">
               <p class="card-label">Spacing scale</p>
               <div style="display:grid;gap:0.75rem;">
                 ${spaces
@@ -34,8 +34,8 @@ export const SpacingAndRadius = {
                   )
                   .join("")}
               </div>
-            </ds-card>
-            <ds-card variant="filled">
+            </mw-card>
+            <mw-card variant="filled">
               <p class="card-label">Radii</p>
               <div style="display:grid;gap:0.75rem;">
                 ${radii
@@ -49,7 +49,7 @@ export const SpacingAndRadius = {
                   )
                   .join("")}
               </div>
-            </ds-card>
+            </mw-card>
           </div>
         </div>
       </section>

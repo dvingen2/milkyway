@@ -24,7 +24,7 @@ badgeTemplate.innerHTML = `
   <span class="badge" part="badge"></span>
 `;
 
-export class DsBadge extends HTMLElement {
+export class MwBadge extends HTMLElement {
   static get observedAttributes() { return ["value", "variant"]; }
 
   connectedCallback() {
@@ -52,4 +52,4 @@ export class DsBadge extends HTMLElement {
   }
 }
 
-customElements.define("ds-badge", DsBadge);
+customElements.define("mw-badge", MwBadge);

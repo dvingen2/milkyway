@@ -36,7 +36,7 @@ snackbarTemplate.innerHTML = `
   </div>
 `;
 
-export class DsSnackbar extends HTMLElement {
+export class MwSnackbar extends HTMLElement {
   static get observedAttributes() { return ["message", "action"]; }
 
   connectedCallback() {
@@ -44,7 +44,7 @@ export class DsSnackbar extends HTMLElement {
       this.attachShadow({ mode: "open" });
       this.shadowRoot.appendChild(snackbarTemplate.content.cloneNode(true));
       this.shadowRoot.querySelector(".action").addEventListener("click", () => {
-        this.dispatchEvent(new CustomEvent("ds-action", { bubbles: true, composed: true }));
+        this.dispatchEvent(new CustomEvent("mw-action", { bubbles: true, composed: true }));
       });
     }
     this.render();
@@ -67,4 +67,4 @@ export class DsSnackbar extends HTMLElement {
   }
 }
 
-customElements.define("ds-snackbar", DsSnackbar);
+customElements.define("mw-snackbar", MwSnackbar);

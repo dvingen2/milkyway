@@ -1,4 +1,4 @@
-@layer surface-system.tokens {
+@layer milkyway.tokens {
 
 :root[data-theme="light"] {
   color-scheme: light;
@@ -307,4 +307,4 @@
   --color-outline-variant: var(--palette-neutral-60);
 }
 
-} /* end @layer surface-system.tokens */
+} /* end @layer milkyway.tokens */

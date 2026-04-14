@@ -131,7 +131,7 @@ const buttonStyles = `
 
 const VARIANTS = ["elevated", "filled", "tonal", "outlined", "text", "destructive"];
 
-export class DsButton extends HTMLElement {
+export class MwButton extends HTMLElement {
   static get observedAttributes() {
     return ["variant", "href", "disabled"];
   }
@@ -185,4 +185,4 @@ export class DsButton extends HTMLElement {
   }
 }
 
-customElements.define("ds-button", DsButton);
+customElements.define("mw-button", MwButton);

@@ -38,7 +38,7 @@ export default {
   },
   render: ({ kind, label, selected, dismissible }) =>
     renderHTML(
-      `<ds-chip kind="${kind}"${selected ? " selected" : ""}${dismissible ? " dismissible" : ""}>${label}</ds-chip>`,
+      `<mw-chip kind="${kind}"${selected ? " selected" : ""}${dismissible ? " dismissible" : ""}>${label}</mw-chip>`,
     ),
 };
 
@@ -49,11 +49,11 @@ export const AllKinds = {
   render: () =>
     renderHTML(`
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;">
-        <ds-chip kind="assist" leading-icon="⌘">Assist</ds-chip>
-        <ds-chip kind="filter" selected>Filter (selected)</ds-chip>
-        <ds-chip kind="filter">Filter (unselected)</ds-chip>
-        <ds-chip kind="input" dismissible>Input token</ds-chip>
-        <ds-chip kind="suggestion" leading-icon="◎">Suggestion</ds-chip>
+        <mw-chip kind="assist" leading-icon="⌘">Assist</mw-chip>
+        <mw-chip kind="filter" selected>Filter (selected)</mw-chip>
+        <mw-chip kind="filter">Filter (unselected)</mw-chip>
+        <mw-chip kind="input" dismissible>Input token</mw-chip>
+        <mw-chip kind="suggestion" leading-icon="◎">Suggestion</mw-chip>
       </div>
     `),
 };
@@ -71,11 +71,11 @@ export const FilterGroup = {
     const el = renderHTML(`
       <div style="display:grid;gap:1rem;max-width:32rem;">
         <div style="display:flex;flex-wrap:wrap;gap:0.5rem;" id="filter-group">
-          <ds-chip kind="filter" selected data-filter="color">Color</ds-chip>
-          <ds-chip kind="filter" data-filter="type">Typography</ds-chip>
-          <ds-chip kind="filter" selected data-filter="spacing">Spacing</ds-chip>
-          <ds-chip kind="filter" data-filter="motion">Motion</ds-chip>
-          <ds-chip kind="filter" data-filter="elevation">Elevation</ds-chip>
+          <mw-chip kind="filter" selected data-filter="color">Color</mw-chip>
+          <mw-chip kind="filter" data-filter="type">Typography</mw-chip>
+          <mw-chip kind="filter" selected data-filter="spacing">Spacing</mw-chip>
+          <mw-chip kind="filter" data-filter="motion">Motion</mw-chip>
+          <mw-chip kind="filter" data-filter="elevation">Elevation</mw-chip>
         </div>
         <p id="filter-output" style="font:var(--type-body-medium);color:var(--color-on-surface-variant);">
           Active: Color, Spacing
@@ -89,7 +89,7 @@ export const FilterGroup = {
         active.length ? `Active: ${active.join(", ")}` : "No filters active";
     };
 
-    el.querySelector("#filter-group").addEventListener("ds-change", update);
+    el.querySelector("#filter-group").addEventListener("mw-change", update);
     return el;
   },
 };
@@ -109,7 +109,7 @@ export const InputTokens = {
     const el = renderHTML(`
       <div style="display:grid;gap:0.75rem;max-width:32rem;">
         <div style="display:flex;flex-wrap:wrap;gap:0.5rem;padding:0.75rem;border:1px solid var(--color-outline);border-radius:var(--radius-sm);" id="token-list">
-          ${tokens.map((t) => `<ds-chip kind="input" dismissible data-token="${t}">${t}</ds-chip>`).join("")}
+          ${tokens.map((t) => `<mw-chip kind="input" dismissible data-token="${t}">${t}</mw-chip>`).join("")}
         </div>
         <p id="token-output" style="font:var(--type-body-medium);color:var(--color-on-surface-variant);">
           Tokens: ${tokens.join(", ")}
@@ -123,7 +123,7 @@ export const InputTokens = {
         remaining.length ? `Tokens: ${remaining.join(", ")}` : "No tokens selected";
     };
 
-    el.querySelector("#token-list").addEventListener("ds-dismiss", (e) => {
+    el.querySelector("#token-list").addEventListener("mw-dismiss", (e) => {
       e.target.remove();
       update();
     });

@@ -1,4 +1,4 @@
-@layer surface-system.tokens {
+@layer milkyway.tokens {
 :root {
   /* State layers */
   --state-hover: rgb(from var(--color-on-surface) r g b / 0.08);

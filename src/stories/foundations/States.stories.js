@@ -21,14 +21,14 @@ export const Layers = {
             ${stateLayers
               .map(
                 (state) => `
-                  <ds-card variant="outlined">
+                  <mw-card variant="outlined">
                     <p class="card-label">${state.name}</p>
                     <div style="min-height:5rem;border-radius:0.75rem;background:
                       linear-gradient(0deg, var(${state.token}), var(${state.token})),
                       var(--layer-surface-1);border:1px solid var(--color-outline-variant);"></div>
                     <p><code>${state.token}</code></p>
                     <p>${state.description}</p>
-                  </ds-card>
+                  </mw-card>
                 `,
               )
               .join("")}

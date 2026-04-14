@@ -8,7 +8,7 @@ export default {
     docs: {
       description: {
         component:
-          "Dialogs interrupt the user to request a decision or provide critical information. They use the native `<dialog>` element for a free focus trap and Escape-key handling. Dismissing fires a `ds-close` event. The `persistent` attribute disables backdrop-click and Escape dismissal for flows that require an explicit choice.",
+          "Dialogs interrupt the user to request a decision or provide critical information. They use the native `<dialog>` element for a free focus trap and Escape-key handling. Dismissing fires a `mw-close` event. The `persistent` attribute disables backdrop-click and Escape dismissal for flows that require an explicit choice.",
       },
     },
   },
@@ -37,8 +37,8 @@ export const Playground = {
   render: ({ headline, icon, persistent }) => {
     const el = renderHTML(`
       <div>
-        <ds-button variant="filled" id="open-btn">Open dialog</ds-button>
-        <ds-dialog
+        <mw-button variant="filled" id="open-btn">Open dialog</mw-button>
+        <mw-dialog
           id="demo-dialog"
           headline="${headline}"
           icon="${icon}"
@@ -46,10 +46,10 @@ export const Playground = {
         >
           <p>This is the dialog body. Place any content here — forms, descriptions, confirmations.</p>
           <div slot="actions">
-            <ds-button variant="text" id="cancel-btn">Cancel</ds-button>
-            <ds-button variant="filled" id="confirm-btn">Confirm</ds-button>
+            <mw-button variant="text" id="cancel-btn">Cancel</mw-button>
+            <mw-button variant="filled" id="confirm-btn">Confirm</mw-button>
           </div>
-        </ds-dialog>
+        </mw-dialog>
       </div>
     `);
 
@@ -67,14 +67,14 @@ export const WithIcon = {
   render: () => {
     const el = renderHTML(`
       <div>
-        <ds-button variant="filled" id="open-btn">Open dialog</ds-button>
-        <ds-dialog id="demo-dialog" headline="Delete token group" icon="⚠">
+        <mw-button variant="filled" id="open-btn">Open dialog</mw-button>
+        <mw-dialog id="demo-dialog" headline="Delete token group" icon="⚠">
           <p>This will permanently delete the <strong>Surface hierarchy</strong> token group and all 14 tokens it contains. This action cannot be undone.</p>
           <div slot="actions">
-            <ds-button variant="text" id="cancel-btn">Cancel</ds-button>
-            <ds-button variant="destructive" id="delete-btn">Delete permanently</ds-button>
+            <mw-button variant="text" id="cancel-btn">Cancel</mw-button>
+            <mw-button variant="destructive" id="delete-btn">Delete permanently</mw-button>
           </div>
-        </ds-dialog>
+        </mw-dialog>
       </div>
     `);
 
@@ -99,18 +99,18 @@ export const WithForm = {
   render: () => {
     const el = renderHTML(`
       <div style="display:grid;gap:1rem;">
-        <ds-button variant="tonal" id="open-btn">New token group</ds-button>
-        <ds-dialog id="form-dialog" headline="Create token group">
+        <mw-button variant="tonal" id="open-btn">New token group</mw-button>
+        <mw-dialog id="form-dialog" headline="Create token group">
           <form id="token-form" style="display:grid;gap:1rem;">
-            <ds-text-field name="name" label="Group name" placeholder="e.g. Surface hierarchy" required></ds-text-field>
-            <ds-text-field name="prefix" label="Token prefix" placeholder="--color-" leading="--"></ds-text-field>
-            <ds-text-field name="description" label="Description" multiline placeholder="Describe the purpose of this group…"></ds-text-field>
+            <mw-text-field name="name" label="Group name" placeholder="e.g. Surface hierarchy" required></mw-text-field>
+            <mw-text-field name="prefix" label="Token prefix" placeholder="--color-" leading="--"></mw-text-field>
+            <mw-text-field name="description" label="Description" multiline placeholder="Describe the purpose of this group…"></mw-text-field>
           </form>
           <div slot="actions">
-            <ds-button variant="text" id="cancel-btn">Cancel</ds-button>
-            <ds-button variant="filled" id="create-btn">Create</ds-button>
+            <mw-button variant="text" id="cancel-btn">Cancel</mw-button>
+            <mw-button variant="filled" id="create-btn">Create</mw-button>
           </div>
-        </ds-dialog>
+        </mw-dialog>
         <pre id="form-output" style="padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;min-height:2rem;max-width:28rem;"></pre>
       </div>
     `);
@@ -141,14 +141,14 @@ export const Persistent = {
   render: () => {
     const el = renderHTML(`
       <div>
-        <ds-button variant="outlined" id="open-btn">Open persistent dialog</ds-button>
-        <ds-dialog id="pers-dialog" headline="Unsaved changes" persistent>
+        <mw-button variant="outlined" id="open-btn">Open persistent dialog</mw-button>
+        <mw-dialog id="pers-dialog" headline="Unsaved changes" persistent>
           <p>You have unsaved changes to the <strong>Primary color</strong> token. What would you like to do?</p>
           <div slot="actions">
-            <ds-button variant="text" id="discard-btn">Discard</ds-button>
-            <ds-button variant="filled" id="save-btn">Save changes</ds-button>
+            <mw-button variant="text" id="discard-btn">Discard</mw-button>
+            <mw-button variant="filled" id="save-btn">Save changes</mw-button>
           </div>
-        </ds-dialog>
+        </mw-dialog>
       </div>
     `);
 
@@ -162,26 +162,26 @@ export const Persistent = {
 };
 
 export const CloseEvent = {
-  name: "ds-close event",
+  name: "mw-close event",
   parameters: {
     docs: {
       description: {
-        story: "Every dismissal (button, Escape, or backdrop click) fires `ds-close`. Use it to reset state or run cleanup.",
+        story: "Every dismissal (button, Escape, or backdrop click) fires `mw-close`. Use it to reset state or run cleanup.",
       },
     },
   },
   render: () => {
     const el = renderHTML(`
       <div style="display:grid;gap:1rem;">
-        <ds-button variant="filled" id="open-btn">Open dialog</ds-button>
-        <ds-dialog id="event-dialog" headline="Close event demo">
+        <mw-button variant="filled" id="open-btn">Open dialog</mw-button>
+        <mw-dialog id="event-dialog" headline="Close event demo">
           <p>Close this dialog any way you like — button, Escape key, or backdrop click.</p>
           <div slot="actions">
-            <ds-button variant="text" id="close-btn">Close</ds-button>
+            <mw-button variant="text" id="close-btn">Close</mw-button>
           </div>
-        </ds-dialog>
+        </mw-dialog>
         <p id="close-output" style="font:var(--type-body-medium);color:var(--color-on-surface-variant);min-height:1.5rem;">
-          Waiting for ds-close…
+          Waiting for mw-close…
         </p>
       </div>
     `);
@@ -189,8 +189,8 @@ export const CloseEvent = {
     const dialog = el.querySelector("#event-dialog");
     el.querySelector("#open-btn").addEventListener("click", () => dialog.showModal());
     el.querySelector("#close-btn").addEventListener("click", () => dialog.close());
-    el.querySelector("#event-dialog").addEventListener("ds-close", () => {
-      el.querySelector("#close-output").textContent = `ds-close fired at ${new Date().toLocaleTimeString()}`;
+    el.querySelector("#event-dialog").addEventListener("mw-close", () => {
+      el.querySelector("#close-output").textContent = `mw-close fired at ${new Date().toLocaleTimeString()}`;
     });
 
     return el;

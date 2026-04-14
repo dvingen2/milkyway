@@ -31,7 +31,7 @@ export default {
   render: ({ items }) =>
     renderHTML(`
       <div style="width:24rem;">
-        <ds-list items='${JSON.stringify(items)}'></ds-list>
+        <mw-list items='${JSON.stringify(items)}'></mw-list>
       </div>
     `),
 };
@@ -86,13 +86,13 @@ export const EventHandling = {
   render: () => {
     const el = renderHTML(`
       <div style="display:grid;gap:1rem;width:24rem;">
-        <ds-list id="demo-list" items='${JSON.stringify(defaultItems)}'></ds-list>
+        <mw-list id="demo-list" items='${JSON.stringify(defaultItems)}'></mw-list>
         <p id="output" style="font:var(--type-body-medium);color:var(--color-on-surface-variant);min-height:1.5rem;">
           Click a row to see the event.
         </p>
       </div>
     `);
-    el.querySelector("#demo-list").addEventListener("ds-select", (e) => {
+    el.querySelector("#demo-list").addEventListener("mw-select", (e) => {
       el.querySelector("#output").textContent =
         `ds-select: index ${e.detail.index} — "${e.detail.item.headline}"`;
     });

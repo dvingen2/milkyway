@@ -114,7 +114,7 @@ dialogTemplate.innerHTML = `
   </dialog>
 `;
 
-export class DsDialog extends HTMLElement {
+export class MwDialog extends HTMLElement {
   static get observedAttributes() {
     return ["headline", "icon", "open", "persistent"];
   }
@@ -147,7 +147,7 @@ export class DsDialog extends HTMLElement {
 
   _dismiss() {
     this.removeAttribute("open");
-    this.dispatchEvent(new CustomEvent("ds-close", {
+    this.dispatchEvent(new CustomEvent("mw-close", {
       bubbles: true,
       composed: true,
     }));
@@ -200,4 +200,4 @@ export class DsDialog extends HTMLElement {
   }
 }
 
-customElements.define("ds-dialog", DsDialog);
+customElements.define("mw-dialog", MwDialog);

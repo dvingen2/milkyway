@@ -28,7 +28,7 @@ export default {
   render: ({ message, action }) =>
     renderHTML(`
       <div style="width:28rem;">
-        <ds-snackbar message="${message}" action="${action}"></ds-snackbar>
+        <mw-snackbar message="${message}" action="${action}"></mw-snackbar>
       </div>
     `),
 };
@@ -59,21 +59,21 @@ export const EventHandling = {
     docs: {
       description: {
         story:
-          "Clicking the action button fires a `ds-action` custom event that bubbles and composes through shadow DOM. Wire it up to undo logic, navigation, or whatever the action implies.",
+          "Clicking the action button fires a `mw-action` custom event that bubbles and composes through shadow DOM. Wire it up to undo logic, navigation, or whatever the action implies.",
       },
     },
   },
   render: () => {
     const el = renderHTML(`
       <div style="display:grid;gap:1rem;width:28rem;">
-        <ds-snackbar message="Token group moved to archive." action="Undo" id="demo-snackbar"></ds-snackbar>
+        <mw-snackbar message="Token group moved to archive." action="Undo" id="demo-snackbar"></mw-snackbar>
         <p id="event-output" style="font:var(--type-body-medium);color:var(--color-on-surface-variant);min-height:1.5rem;">
           Click "Undo" to see the event fire.
         </p>
       </div>
     `);
-    el.querySelector("#demo-snackbar").addEventListener("ds-action", () => {
-      el.querySelector("#event-output").textContent = "ds-action event fired — undo logic would run here.";
+    el.querySelector("#demo-snackbar").addEventListener("mw-action", () => {
+      el.querySelector("#event-output").textContent = "mw-action event fired — undo logic would run here.";
     });
     return el;
   },

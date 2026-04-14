@@ -18,7 +18,7 @@ export const ColorRoles = {
             <p class="lede">Key colors are inputs. Tonal palettes are explicit outputs. Semantic roles are the stable interface consumed by components.</p>
           </div>
           <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;">
-            <ds-card variant="filled">
+            <mw-card variant="filled">
               <p class="card-label">Key colors</p>
               <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.75rem;">
                 ${keyColors
@@ -36,8 +36,8 @@ export const ColorRoles = {
                   )
                   .join("")}
               </div>
-            </ds-card>
-            <ds-card variant="outlined">
+            </mw-card>
+            <mw-card variant="outlined">
               <p class="card-label">Tonal palettes</p>
               <div style="display:grid;gap:0.75rem;">
                 ${tonalPalettes
@@ -62,8 +62,8 @@ export const ColorRoles = {
                   )
                   .join("")}
               </div>
-            </ds-card>
-            <ds-card variant="outlined">
+            </mw-card>
+            <mw-card variant="outlined">
               <p class="card-label">Semantic roles</p>
               <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.75rem;">
                 ${colorRoles
@@ -82,14 +82,14 @@ export const ColorRoles = {
                   )
                   .join("")}
               </div>
-            </ds-card>
+            </mw-card>
           </div>
-          <ds-card variant="outlined">
+          <mw-card variant="outlined">
             <p class="card-label">Customization</p>
             <ol style="margin:0;padding-left:1.2rem;display:grid;gap:0.55rem;">
               ${colorCustomizationGuidance.map((item) => `<li>${item}</li>`).join("")}
             </ol>
-          </ds-card>
+          </mw-card>
         </div>
       </section>
     `),

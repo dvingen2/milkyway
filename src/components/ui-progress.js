@@ -46,7 +46,7 @@ progressCircularTemplate.innerHTML = `
   <div class="circular" part="circular" role="progressbar" aria-label="Loading"></div>
 `;
 
-export class DsProgress extends HTMLElement {
+export class MwProgress extends HTMLElement {
   static get observedAttributes() { return ["value", "kind"]; }
 
   connectedCallback() {
@@ -87,4 +87,4 @@ export class DsProgress extends HTMLElement {
   }
 }
 
-customElements.define("ds-progress", DsProgress);
+customElements.define("mw-progress", MwProgress);

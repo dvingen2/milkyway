@@ -23,26 +23,26 @@ export const Overview = {
           </div>
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1.5rem;">
-            <ds-card variant="filled">
+            <mw-card variant="filled">
               <p class="card-label">How the cascade works</p>
-              <p>All Surface System tokens live inside <code>@layer surface-system.tokens</code>. Because layered rules always lose to unlayered rules, any <code>:root { }</code> block in your own stylesheet overrides the library automatically.</p>
+              <p>All Milkyway tokens live inside <code>@layer milkyway.tokens</code>. Because layered rules always lose to unlayered rules, any <code>:root { }</code> block in your own stylesheet overrides the library automatically.</p>
               <p style="margin-top:0.75rem;">This means a single CSS file with two or three overrides is all you need to retheme every component at once.</p>
-            </ds-card>
-            <ds-card variant="outlined">
+            </mw-card>
+            <mw-card variant="outlined">
               <p class="card-label">Three levels of control</p>
               <ol style="margin:0;padding-left:1.25rem;display:grid;gap:0.6rem;line-height:1.5;">
                 <li><strong>Level 1 — Direct role override.</strong> Override semantic roles like <code>--color-primary</code> directly. Fastest path; no colour science required.</li>
                 <li><strong>Level 2 — Key color components.</strong> Override <code>--_primary-h</code> and <code>--_primary-c</code> (oklch hue and chroma). The entire tonal palette recomputes automatically.</li>
                 <li><strong>Level 3 — Individual palette tones.</strong> Override specific <code>--palette-primary-40</code> values for exact brand matches.</li>
               </ol>
-            </ds-card>
-            <ds-card variant="outlined">
+            </mw-card>
+            <mw-card variant="outlined">
               <p class="card-label">Getting started</p>
               <p>Copy <code>src/styles/theme-template.css</code> into your project and load it after the Surface System stylesheet:</p>
-              <pre style="margin:0.75rem 0 0;padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;overflow-x:auto;line-height:1.6;">&lt;link rel="stylesheet" href="surface-system/styles"&gt;
+              <pre style="margin:0.75rem 0 0;padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;overflow-x:auto;line-height:1.6;">&lt;link rel="stylesheet" href="milkyway/styles"&gt;
 &lt;link rel="stylesheet" href="./theme.css"&gt;</pre>
               <p style="margin-top:0.75rem;">Uncomment the variables you want to change. Everything else inherits the library defaults.</p>
-            </ds-card>
+            </mw-card>
           </div>
 
         </div>
@@ -68,16 +68,16 @@ export const Level1DirectRoleOverride = {
             <p class="lede">Override semantic roles in an unlayered <code>:root</code> block. Every component that consumes that role updates immediately — CSS custom properties pierce shadow DOM boundaries.</p>
           </div>
 
-          <ds-card variant="outlined">
+          <mw-card variant="outlined">
             <p class="card-label">Example</p>
-            <pre style="margin:0;padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;overflow-x:auto;line-height:1.8;">/* theme.css — loaded after surface-system/styles */
+            <pre style="margin:0;padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;overflow-x:auto;line-height:1.8;">/* theme.css — loaded after milkyway/styles */
 :root {
   --color-primary:           oklch(52% 0.18 142); /* forest green  */
   --color-on-primary:        oklch(100% 0 0);
   --color-primary-container: oklch(86% 0.09 142);
   --color-on-primary-container: oklch(18% 0.14 142);
 }</pre>
-          </ds-card>
+          </mw-card>
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1.5rem;align-items:start;">
 
@@ -85,10 +85,10 @@ export const Level1DirectRoleOverride = {
             <div style="display:grid;gap:1rem;">
               <p style="font:var(--type-label-large);color:var(--color-on-surface-variant);margin:0;">Default (teal)</p>
               <div style="display:grid;gap:0.75rem;padding:1.5rem;background:var(--layer-surface);border-radius:var(--radius-md);border:1px solid var(--color-outline-variant);">
-                <ds-button variant="filled">Filled button</ds-button>
-                <ds-button variant="tonal">Tonal button</ds-button>
-                <ds-checkbox label="Accept terms"></ds-checkbox>
-                <ds-switch label="Notifications"></ds-switch>
+                <mw-button variant="filled">Filled button</mw-button>
+                <mw-button variant="tonal">Tonal button</mw-button>
+                <mw-checkbox label="Accept terms"></mw-checkbox>
+                <mw-switch label="Notifications"></mw-switch>
               </div>
             </div>
 
@@ -101,10 +101,10 @@ export const Level1DirectRoleOverride = {
               display:grid;gap:1rem;">
               <p style="font:var(--type-label-large);color:var(--color-on-surface-variant);margin:0;">Green override</p>
               <div style="display:grid;gap:0.75rem;padding:1.5rem;background:var(--layer-surface);border-radius:var(--radius-md);border:1px solid var(--color-outline-variant);">
-                <ds-button variant="filled">Filled button</ds-button>
-                <ds-button variant="tonal">Tonal button</ds-button>
-                <ds-checkbox label="Accept terms"></ds-checkbox>
-                <ds-switch label="Notifications"></ds-switch>
+                <mw-button variant="filled">Filled button</mw-button>
+                <mw-button variant="tonal">Tonal button</mw-button>
+                <mw-checkbox label="Accept terms"></mw-checkbox>
+                <mw-switch label="Notifications"></mw-switch>
               </div>
             </div>
 
@@ -117,16 +117,16 @@ export const Level1DirectRoleOverride = {
               display:grid;gap:1rem;">
               <p style="font:var(--type-label-large);color:var(--color-on-surface-variant);margin:0;">Violet override</p>
               <div style="display:grid;gap:0.75rem;padding:1.5rem;background:var(--layer-surface);border-radius:var(--radius-md);border:1px solid var(--color-outline-variant);">
-                <ds-button variant="filled">Filled button</ds-button>
-                <ds-button variant="tonal">Tonal button</ds-button>
-                <ds-checkbox label="Accept terms"></ds-checkbox>
-                <ds-switch label="Notifications"></ds-switch>
+                <mw-button variant="filled">Filled button</mw-button>
+                <mw-button variant="tonal">Tonal button</mw-button>
+                <mw-checkbox label="Accept terms"></mw-checkbox>
+                <mw-switch label="Notifications"></mw-switch>
               </div>
             </div>
 
           </div>
 
-          <ds-card variant="filled">
+          <mw-card variant="filled">
             <p class="card-label">Minimum viable override</p>
             <p>For most themes, overriding just the four primary variables is sufficient. Add the container pair for tonal buttons and selected chips.</p>
             <ul style="margin:0.5rem 0 0;padding-left:1.25rem;display:grid;gap:0.35rem;line-height:1.5;">
@@ -135,7 +135,7 @@ export const Level1DirectRoleOverride = {
               <li><code>--color-primary-container</code> — tonal button, selected chip background</li>
               <li><code>--color-on-primary-container</code> — label on tonal/container surfaces</li>
             </ul>
-          </ds-card>
+          </mw-card>
 
         </div>
       </section>
@@ -158,13 +158,13 @@ export const Level2KeyColorComponents = {
             <p class="lede">Override just the oklch hue and chroma for a palette. Every tone in that palette recomputes automatically, giving you a harmonious full-range scale from a single pair of values.</p>
           </div>
 
-          <ds-card variant="outlined">
+          <mw-card variant="outlined">
             <p class="card-label">Example — shift primary from teal to amber</p>
             <pre style="margin:0;padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;overflow-x:auto;line-height:1.8;">:root {
   --_primary-h: 80;    /* oklch hue: 0–360, 194 = teal (default), 80 = amber */
   --_primary-c: 0.14;  /* oklch chroma: 0 = grey, ~0.2 = vivid               */
 }</pre>
-          </ds-card>
+          </mw-card>
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1.5rem;align-items:start;">
 
@@ -206,7 +206,7 @@ export const Level2KeyColorComponents = {
 
           </div>
 
-          <ds-card variant="filled">
+          <mw-card variant="filled">
             <p class="card-label">Chroma guide</p>
             <p>In oklch, chroma is unbounded but practical values fall in a narrow range. All palette tones scale from the key chroma using per-tone factors, so you set one number for the whole scale.</p>
             <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:0.75rem;margin-top:0.75rem;">
@@ -223,7 +223,7 @@ export const Level2KeyColorComponents = {
                 <strong>0.18–0.25</strong><br>Vivid, expressive accent
               </div>
             </div>
-          </ds-card>
+          </mw-card>
 
         </div>
       </section>
@@ -246,7 +246,7 @@ export const Level3IndividualTones = {
             <p class="lede">For exact brand colour matches — when a precise Pantone or sRGB value must appear at a specific tone — override individual palette variables. These feed directly into the semantic roles.</p>
           </div>
 
-          <ds-card variant="outlined">
+          <mw-card variant="outlined">
             <p class="card-label">Example</p>
             <pre style="margin:0;padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;overflow-x:auto;line-height:1.8;">:root {
   /* Exact brand red at the "40" key tone */
@@ -258,10 +258,10 @@ export const Level3IndividualTones = {
   --palette-primary-10: #3d0a06;
   --palette-primary-20: #6b1510;
 }</pre>
-          </ds-card>
+          </mw-card>
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1.5rem;">
-            <ds-card variant="filled">
+            <mw-card variant="filled">
               <p class="card-label">Tone-to-role mapping</p>
               <p>The semantic roles reference palette tones at fixed positions. Override the tone to change the role everywhere it is used.</p>
               <div style="display:grid;gap:0.5rem;margin-top:0.75rem;font-size:0.9rem;">
@@ -278,8 +278,8 @@ export const Level3IndividualTones = {
                   </div>
                 `).join("")}
               </div>
-            </ds-card>
-            <ds-card variant="outlined">
+            </mw-card>
+            <mw-card variant="outlined">
               <p class="card-label">When to use Level 3</p>
               <ul style="margin:0;padding-left:1.25rem;display:grid;gap:0.5rem;line-height:1.5;">
                 <li>Legal/brand requirement for an exact hex or Pantone value</li>
@@ -288,7 +288,7 @@ export const Level3IndividualTones = {
                 <li>Prototyping with a third-party palette (e.g. Tailwind, Radix, IBM Carbon)</li>
               </ul>
               <p style="margin-top:0.75rem;color:var(--color-on-surface-variant);">For most projects, Level 1 or Level 2 is sufficient and easier to maintain.</p>
-            </ds-card>
+            </mw-card>
           </div>
 
         </div>
@@ -314,7 +314,7 @@ export const DarkMode = {
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1.5rem;">
 
-            <ds-card variant="outlined">
+            <mw-card variant="outlined">
               <p class="card-label">System preference</p>
               <pre style="margin:0;padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;overflow-x:auto;line-height:1.8;">@media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -324,9 +324,9 @@ export const DarkMode = {
   }
 }</pre>
               <p style="margin-top:0.75rem;color:var(--color-on-surface-variant);">Scoping with <code>:not([data-theme="light"])</code> lets a manual toggle override the media query.</p>
-            </ds-card>
+            </mw-card>
 
-            <ds-card variant="outlined">
+            <mw-card variant="outlined">
               <p class="card-label">Manual data-theme toggle</p>
               <pre style="margin:0;padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;overflow-x:auto;line-height:1.8;">[data-theme="dark"] {
   --color-primary: oklch(80% 0.12 265);
@@ -334,13 +334,13 @@ export const DarkMode = {
   --layer-surface: #161616;
 }</pre>
               <p style="margin-top:0.75rem;color:var(--color-on-surface-variant);">Set <code>document.documentElement.dataset.theme = "dark"</code> or <code>"light"</code> to toggle programmatically.</p>
-            </ds-card>
+            </mw-card>
 
-            <ds-card variant="filled">
+            <mw-card variant="filled">
               <p class="card-label">Why both patterns</p>
               <p>If you only set roles in <code>:root</code>, those values apply in both modes — the system's own dark remapping is in a lower-priority layer and cannot override your unlayered rules.</p>
               <p style="margin-top:0.75rem;">Use the media query pattern when you want automatic dark mode. Use the data-attribute pattern when you need a user-controlled toggle that persists across system preference changes.</p>
-            </ds-card>
+            </mw-card>
 
           </div>
 

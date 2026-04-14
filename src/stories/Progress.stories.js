@@ -29,8 +29,8 @@ export default {
   render: ({ kind, value }) =>
     renderHTML(
       kind === "circular"
-        ? `<ds-progress kind="circular"></ds-progress>`
-        : `<div style="width:24rem;"><ds-progress value="${value}"></ds-progress></div>`,
+        ? `<mw-progress kind="circular"></mw-progress>`
+        : `<div style="width:24rem;"><mw-progress value="${value}"></mw-progress></div>`,
     ),
 };
 
@@ -41,10 +41,10 @@ export const LinearDeterminate = {
   render: () =>
     renderHTML(`
       <div style="display:grid;gap:1rem;width:24rem;">
-        <ds-progress value="0.25"></ds-progress>
-        <ds-progress value="0.5"></ds-progress>
-        <ds-progress value="0.75"></ds-progress>
-        <ds-progress value="1"></ds-progress>
+        <mw-progress value="0.25"></mw-progress>
+        <mw-progress value="0.5"></mw-progress>
+        <mw-progress value="0.75"></mw-progress>
+        <mw-progress value="1"></mw-progress>
       </div>
     `),
 };
@@ -54,7 +54,7 @@ export const CircularIndeterminate = {
   render: () =>
     renderHTML(`
       <div style="display:flex;gap:1.5rem;align-items:center;">
-        <ds-progress kind="circular"></ds-progress>
+        <mw-progress kind="circular"></mw-progress>
         <span style="font:var(--type-body-medium);color:var(--color-on-surface-variant);">Loading…</span>
       </div>
     `),
@@ -72,18 +72,18 @@ export const InContext = {
   render: () =>
     renderHTML(`
       <div style="display:grid;gap:1.5rem;max-width:32rem;">
-        <ds-card variant="outlined">
+        <mw-card variant="outlined">
           <p class="card-label">Loading tokens</p>
-          <ds-progress value="0.4"></ds-progress>
+          <mw-progress value="0.4"></mw-progress>
           <p style="margin:0.75rem 0 0;color:var(--color-on-surface-variant);font:var(--type-body-medium);">Fetching token definitions… 40%</p>
-        </ds-card>
-        <ds-card variant="outlined">
+        </mw-card>
+        <mw-card variant="outlined">
           <p class="card-label">Exporting</p>
           <div style="display:flex;gap:0.75rem;align-items:center;">
-            <ds-progress kind="circular"></ds-progress>
+            <mw-progress kind="circular"></mw-progress>
             <span style="font:var(--type-body-medium);color:var(--color-on-surface-variant);">Building dist…</span>
           </div>
-        </ds-card>
+        </mw-card>
       </div>
     `),
 };
@@ -100,10 +100,10 @@ export const Animated = {
   render: () => {
     const el = renderHTML(`
       <div style="display:grid;gap:1rem;max-width:32rem;">
-        <ds-progress id="anim-bar" value="0"></ds-progress>
+        <mw-progress id="anim-bar" value="0"></mw-progress>
         <div style="display:flex;gap:0.75rem;">
-          <ds-button variant="filled" id="start-btn">Start</ds-button>
-          <ds-button variant="outlined" id="reset-btn">Reset</ds-button>
+          <mw-button variant="filled" id="start-btn">Start</mw-button>
+          <mw-button variant="outlined" id="reset-btn">Reset</mw-button>
         </div>
       </div>
     `);

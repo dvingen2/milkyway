@@ -4,36 +4,41 @@
  * display before the shadow root attaches, preventing layout flash.
  * This file IS part of the library distribution (unlike base.css).
  */
-@layer surface-system.base {
-  :where(ds-button, ds-chip, ds-icon-button) {
+@layer milkyway.base {
+  :where(mw-button, mw-chip, mw-icon-button, mw-fab, mw-extended-fab, mw-tooltip, mw-segmented-button) {
     display: inline-flex;
   }
 
   :where(
-    ds-card,
-    ds-divider,
-    ds-list,
-    ds-top-app-bar,
-    ds-tabs,
-    ds-navigation-rail,
-    ds-snackbar,
-    ds-progress,
-    ds-menu,
-    ds-badge,
-    ds-dialog
+    mw-card,
+    mw-divider,
+    mw-list,
+    mw-top-app-bar,
+    mw-tabs,
+    mw-navigation-rail,
+    mw-navigation-bar,
+    mw-snackbar,
+    mw-progress,
+    mw-menu,
+    mw-badge,
+    mw-dialog,
+    mw-bottom-sheet,
+    mw-side-sheet,
+    mw-slider,
+    mw-select
   ) {
     display: block;
   }
 
-  :where(ds-text-field, ds-checkbox, ds-radio, ds-switch) {
+  :where(mw-text-field, mw-checkbox, mw-radio, mw-switch) {
     display: inline-block;
   }
 
-  :where(ds-text-field) {
+  :where(mw-text-field) {
     width: 100%;
   }
 
-  :where(ds-list, ds-top-app-bar, ds-tabs, ds-navigation-rail, ds-snackbar, ds-progress) {
+  :where(mw-list, mw-top-app-bar, mw-tabs, mw-navigation-rail, mw-snackbar, mw-progress) {
     width: 100%;
   }
 

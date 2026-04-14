@@ -65,7 +65,7 @@ cardTemplate.innerHTML = `
   </article>
 `;
 
-export class DsCard extends HTMLElement {
+export class MwCard extends HTMLElement {
   static get observedAttributes() { return ["variant"]; }
 
   connectedCallback() {
@@ -88,4 +88,4 @@ export class DsCard extends HTMLElement {
   }
 }
 
-customElements.define("ds-card", DsCard);
+customElements.define("mw-card", MwCard);

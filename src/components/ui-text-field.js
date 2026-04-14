@@ -138,7 +138,7 @@ fieldTemplate.innerHTML = `
   </label>
 `;
 
-export class DsTextField extends HTMLElement {
+export class MwTextField extends HTMLElement {
   static formAssociated = true;
 
   constructor() {
@@ -252,4 +252,4 @@ export class DsTextField extends HTMLElement {
   }
 }
 
-customElements.define("ds-text-field", DsTextField);
+customElements.define("mw-text-field", MwTextField);

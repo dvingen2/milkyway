@@ -33,14 +33,14 @@ export default {
   },
   render: ({ variant, icon, toggle, selected, disabled, ariaLabel }) =>
     renderHTML(
-      `<ds-icon-button
+      `<mw-icon-button
         variant="${variant}"
         aria-label="${ariaLabel}"
         title="${ariaLabel}"
         ${toggle ? "toggle" : ""}
         ${selected ? "selected" : ""}
         ${disabled ? "disabled" : ""}
-      >${icon}</ds-icon-button>`,
+      >${icon}</mw-icon-button>`,
     ),
 };
 
@@ -51,10 +51,10 @@ export const AllVariants = {
   render: () =>
     renderHTML(`
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;">
-        <ds-icon-button variant="standard" aria-label="Standard" title="Standard">★</ds-icon-button>
-        <ds-icon-button variant="filled" aria-label="Filled" title="Filled">★</ds-icon-button>
-        <ds-icon-button variant="tonal" aria-label="Tonal" title="Tonal">★</ds-icon-button>
-        <ds-icon-button variant="outlined" aria-label="Outlined" title="Outlined">★</ds-icon-button>
+        <mw-icon-button variant="standard" aria-label="Standard" title="Standard">★</mw-icon-button>
+        <mw-icon-button variant="filled" aria-label="Filled" title="Filled">★</mw-icon-button>
+        <mw-icon-button variant="tonal" aria-label="Tonal" title="Tonal">★</mw-icon-button>
+        <mw-icon-button variant="outlined" aria-label="Outlined" title="Outlined">★</mw-icon-button>
       </div>
     `),
 };
@@ -64,10 +64,10 @@ export const ToggleStates = {
   render: () =>
     renderHTML(`
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;">
-        <ds-icon-button variant="standard" toggle selected aria-label="Saved" title="Saved">★</ds-icon-button>
-        <ds-icon-button variant="filled" toggle aria-label="Pin" title="Pin">⌘</ds-icon-button>
-        <ds-icon-button variant="tonal" toggle selected aria-label="Notifications on" title="Notifications on">◌</ds-icon-button>
-        <ds-icon-button variant="outlined" toggle aria-label="Bookmark" title="Bookmark">◈</ds-icon-button>
+        <mw-icon-button variant="standard" toggle selected aria-label="Saved" title="Saved">★</mw-icon-button>
+        <mw-icon-button variant="filled" toggle aria-label="Pin" title="Pin">⌘</mw-icon-button>
+        <mw-icon-button variant="tonal" toggle selected aria-label="Notifications on" title="Notifications on">◌</mw-icon-button>
+        <mw-icon-button variant="outlined" toggle aria-label="Bookmark" title="Bookmark">◈</mw-icon-button>
       </div>
     `),
 };
@@ -77,10 +77,10 @@ export const DisabledStates = {
   render: () =>
     renderHTML(`
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;">
-        <ds-icon-button variant="standard" disabled aria-label="Disabled">★</ds-icon-button>
-        <ds-icon-button variant="filled" disabled aria-label="Disabled">★</ds-icon-button>
-        <ds-icon-button variant="tonal" disabled aria-label="Disabled">★</ds-icon-button>
-        <ds-icon-button variant="outlined" disabled aria-label="Disabled">★</ds-icon-button>
+        <mw-icon-button variant="standard" disabled aria-label="Disabled">★</mw-icon-button>
+        <mw-icon-button variant="filled" disabled aria-label="Disabled">★</mw-icon-button>
+        <mw-icon-button variant="tonal" disabled aria-label="Disabled">★</mw-icon-button>
+        <mw-icon-button variant="outlined" disabled aria-label="Disabled">★</mw-icon-button>
       </div>
     `),
 };
@@ -97,14 +97,14 @@ export const ToggleEvent = {
   render: () => {
     const el = renderHTML(`
       <div style="display:flex;gap:1.5rem;align-items:center;">
-        <ds-icon-button id="toggle-btn" variant="tonal" toggle aria-label="Notifications" title="Notifications">◌</ds-icon-button>
+        <mw-icon-button id="toggle-btn" variant="tonal" toggle aria-label="Notifications" title="Notifications">◌</mw-icon-button>
         <p id="toggle-output" style="font:var(--type-body-medium);color:var(--color-on-surface-variant);">
           Notifications off
         </p>
       </div>
     `);
 
-    el.querySelector("#toggle-btn").addEventListener("ds-toggle", (e) => {
+    el.querySelector("#toggle-btn").addEventListener("mw-toggle", (e) => {
       el.querySelector("#toggle-output").textContent =
         e.detail.selected ? "Notifications on" : "Notifications off";
     });

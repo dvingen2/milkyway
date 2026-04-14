@@ -79,7 +79,7 @@ listTemplate.innerHTML = `
   <div class="list" part="list"></div>
 `;
 
-export class DsList extends HTMLElement {
+export class MwList extends HTMLElement {
   static get observedAttributes() { return ["items"]; }
 
   /** @type {Array<{headline: string, supporting?: string, leading?: string, trailing?: string, selected?: boolean}>} */
@@ -138,7 +138,7 @@ export class DsList extends HTMLElement {
     list.querySelectorAll("[data-interactive]").forEach((el) => {
       el.addEventListener("click", () => {
         const index = Number(el.dataset.index);
-        this.dispatchEvent(new CustomEvent("ds-select", {
+        this.dispatchEvent(new CustomEvent("mw-select", {
           bubbles: true,
           composed: true,
           detail: { index, item: this.items[index] },
@@ -148,4 +148,4 @@ export class DsList extends HTMLElement {
   }
 }
 
-customElements.define("ds-list", DsList);
+customElements.define("mw-list", MwList);

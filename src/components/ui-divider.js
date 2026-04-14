@@ -27,7 +27,7 @@ dividerTemplate.innerHTML = `
   <hr part="divider" />
 `;
 
-export class DsDivider extends HTMLElement {
+export class MwDivider extends HTMLElement {
   static get observedAttributes() { return ["variant"]; }
 
   connectedCallback() {
@@ -50,4 +50,4 @@ export class DsDivider extends HTMLElement {
   }
 }
 
-customElements.define("ds-divider", DsDivider);
+customElements.define("mw-divider", MwDivider);

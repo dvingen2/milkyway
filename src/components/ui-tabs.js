@@ -55,7 +55,7 @@ tabsTemplate.innerHTML = `
   <div class="tabs" part="tabs" role="tablist"></div>
 `;
 
-export class DsTabs extends HTMLElement {
+export class MwTabs extends HTMLElement {
   static get observedAttributes() { return ["items"]; }
 
   /** @type {Array<{label: string, href?: string, icon?: string, active?: boolean}>|null} */
@@ -93,7 +93,7 @@ export class DsTabs extends HTMLElement {
       } catch { return; }
     }
     this.render();
-    this.dispatchEvent(new CustomEvent("ds-change", {
+    this.dispatchEvent(new CustomEvent("mw-change", {
       bubbles: true,
       composed: true,
       detail: { index, item: this.items[index] },
@@ -134,4 +134,4 @@ export class DsTabs extends HTMLElement {
   }
 }
 
-customElements.define("ds-tabs", DsTabs);
+customElements.define("mw-tabs", MwTabs);

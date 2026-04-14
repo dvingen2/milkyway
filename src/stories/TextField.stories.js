@@ -40,7 +40,7 @@ export default {
   render: ({ label, value, placeholder, variant, multiline, helper, error, leading, trailing, disabled, required }) =>
     renderHTML(`
       <div style="width:20rem;">
-        <ds-text-field
+        <mw-text-field
           label="${label}"
           value="${value}"
           placeholder="${placeholder}"
@@ -52,7 +52,7 @@ export default {
           ${multiline ? "multiline" : ""}
           ${disabled ? "disabled" : ""}
           ${required ? "required" : ""}
-        ></ds-text-field>
+        ></mw-text-field>
       </div>
     `),
 };
@@ -125,10 +125,10 @@ export const InAForm = {
     const el = renderHTML(`
       <div style="max-width:28rem;display:grid;gap:1.5rem;">
         <form id="tf-form" style="display:grid;gap:1rem;">
-          <ds-text-field name="name" label="Display name" placeholder="Your name" required></ds-text-field>
-          <ds-text-field name="token" label="Token prefix" value="--color-" leading="--"></ds-text-field>
-          <ds-text-field name="notes" label="Notes" multiline placeholder="Optional notes…"></ds-text-field>
-          <ds-button variant="filled" type="submit">Save</ds-button>
+          <mw-text-field name="name" label="Display name" placeholder="Your name" required></mw-text-field>
+          <mw-text-field name="token" label="Token prefix" value="--color-" leading="--"></mw-text-field>
+          <mw-text-field name="notes" label="Notes" multiline placeholder="Optional notes…"></mw-text-field>
+          <mw-button variant="filled" type="submit">Save</mw-button>
         </form>
         <pre id="tf-output" style="padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;min-height:2rem;"></pre>
       </div>

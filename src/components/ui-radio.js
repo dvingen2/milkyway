@@ -80,7 +80,7 @@ radioTemplate.innerHTML = `
   </label>
 `;
 
-export class DsRadio extends HTMLElement {
+export class MwRadio extends HTMLElement {
   static formAssociated = true;
 
   constructor() {
@@ -141,4 +141,4 @@ export class DsRadio extends HTMLElement {
   }
 }
 
-customElements.define("ds-radio", DsRadio);
+customElements.define("mw-radio", MwRadio);

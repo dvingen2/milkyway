@@ -116,7 +116,7 @@ const iconButtonStyles = `
 
 const VARIANTS = ["standard", "filled", "tonal", "outlined"];
 
-export class DsIconButton extends HTMLElement {
+export class MwIconButton extends HTMLElement {
   static get observedAttributes() {
     return ["aria-label", "title", "variant", "selected", "toggle", "disabled"];
   }
@@ -172,7 +172,7 @@ export class DsIconButton extends HTMLElement {
       btn.addEventListener("click", () => {
         const next = !this.selected;
         this.selected = next;
-        this.dispatchEvent(new CustomEvent("ds-toggle", {
+        this.dispatchEvent(new CustomEvent("mw-toggle", {
           bubbles: true,
           composed: true,
           detail: { selected: next },
@@ -184,4 +184,4 @@ export class DsIconButton extends HTMLElement {
   }
 }
 
-customElements.define("ds-icon-button", DsIconButton);
+customElements.define("mw-icon-button", MwIconButton);

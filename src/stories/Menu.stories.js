@@ -36,7 +36,7 @@ export default {
   render: ({ label, items }) =>
     renderHTML(`
       <div style="padding:3rem;">
-        <ds-menu label="${label}" items='${JSON.stringify(items)}'></ds-menu>
+        <mw-menu label="${label}" items='${JSON.stringify(items)}'></mw-menu>
       </div>
     `),
 };
@@ -74,14 +74,14 @@ export const EventHandling = {
   render: () => {
     const el = renderHTML(`
       <div style="padding:3rem;display:grid;gap:1rem;align-items:start;">
-        <ds-menu id="demo-menu" label="Open menu" items='${JSON.stringify(defaultItems)}'></ds-menu>
+        <mw-menu id="demo-menu" label="Open menu" items='${JSON.stringify(defaultItems)}'></mw-menu>
         <p id="output" style="font:var(--type-body-medium);color:var(--color-on-surface-variant);min-height:1.5rem;">
           Select a menu item to see the event.
         </p>
       </div>
     `);
 
-    el.querySelector("#demo-menu").addEventListener("ds-select", (e) => {
+    el.querySelector("#demo-menu").addEventListener("mw-select", (e) => {
       el.querySelector("#output").textContent =
         `ds-select: index ${e.detail.index} — "${e.detail.item.label}"`;
     });

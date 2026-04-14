@@ -96,7 +96,7 @@ menuTemplate.innerHTML = `
   </details>
 `;
 
-export class DsMenu extends HTMLElement {
+export class MwMenu extends HTMLElement {
   static get observedAttributes() { return ["label", "items"]; }
 
   /** @type {Array<{label: string, supporting?: string, href?: string, danger?: boolean}>|null} */
@@ -152,7 +152,7 @@ export class DsMenu extends HTMLElement {
       el.addEventListener("click", () => {
         details.removeAttribute("open");
         const index = Number(el.dataset.index);
-        this.dispatchEvent(new CustomEvent("ds-select", {
+        this.dispatchEvent(new CustomEvent("mw-select", {
           bubbles: true,
           composed: true,
           detail: { index, item: this.items[index] },
@@ -162,4 +162,4 @@ export class DsMenu extends HTMLElement {
   }
 }
 
-customElements.define("ds-menu", DsMenu);
+customElements.define("mw-menu", MwMenu);

@@ -118,7 +118,7 @@ export const componentPrinciples = [
 export const componentReferences = [
   {
     name: "Button",
-    element: "<ds-button>",
+    element: "<mw-button>",
     purpose: "Primær handlingskomponent for navigasjon, valg og eksplisitte kommandoer i dokumentasjonen.",
     anatomy: [
       "Container med shape, surface og state layers",
@@ -137,7 +137,7 @@ export const componentReferences = [
   },
   {
     name: "Icon Button",
-    element: "<ds-icon-button>",
+    element: "<mw-icon-button>",
     purpose: "Kompakt kontroll for sekundære handlinger der ikon alene er tilstrekkelig og tydelig.",
     anatomy: [
       "Sirkulær surface som favner ikonets hit area",
@@ -151,7 +151,7 @@ export const componentReferences = [
   },
   {
     name: "Chip",
-    element: "<ds-chip>",
+    element: "<mw-chip>",
     purpose: "Lettvektskomponent for filtrering, merking eller dokumentasjonsstatus med tydelig selection state.",
     anatomy: [
       "Lavprofil-container med outline eller tonal flate",
@@ -165,7 +165,7 @@ export const componentReferences = [
   },
   {
     name: "Text Field",
-    element: "<ds-text-field>",
+    element: "<mw-text-field>",
     purpose: "Inndatafelt for korte eller lengre tekstverdier i eksempler, playgrounds og komponentdokumentasjon.",
     anatomy: [
       "Label som beskriver forventet innhold",

@@ -39,7 +39,7 @@ export default {
   render: ({ variant, label, href, disabled }) => {
     const hrefAttr = href ? ` href="${href}"` : "";
     const disabledAttr = disabled ? " disabled" : "";
-    return renderHTML(`<ds-button variant="${variant}"${hrefAttr}${disabledAttr}>${label}</ds-button>`);
+    return renderHTML(`<mw-button variant="${variant}"${hrefAttr}${disabledAttr}>${label}</mw-button>`);
   },
 };
 
@@ -50,12 +50,12 @@ export const AllVariants = {
   render: () =>
     renderHTML(`
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;">
-        <ds-button variant="filled">Filled</ds-button>
-        <ds-button variant="elevated">Elevated</ds-button>
-        <ds-button variant="tonal">Tonal</ds-button>
-        <ds-button variant="outlined">Outlined</ds-button>
-        <ds-button variant="text">Text</ds-button>
-        <ds-button variant="destructive">Destructive</ds-button>
+        <mw-button variant="filled">Filled</mw-button>
+        <mw-button variant="elevated">Elevated</mw-button>
+        <mw-button variant="tonal">Tonal</mw-button>
+        <mw-button variant="outlined">Outlined</mw-button>
+        <mw-button variant="text">Text</mw-button>
+        <mw-button variant="destructive">Destructive</mw-button>
       </div>
     `),
 };
@@ -65,12 +65,12 @@ export const DisabledStates = {
   render: () =>
     renderHTML(`
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;">
-        <ds-button variant="filled" disabled>Filled</ds-button>
-        <ds-button variant="elevated" disabled>Elevated</ds-button>
-        <ds-button variant="tonal" disabled>Tonal</ds-button>
-        <ds-button variant="outlined" disabled>Outlined</ds-button>
-        <ds-button variant="text" disabled>Text</ds-button>
-        <ds-button variant="destructive" disabled>Destructive</ds-button>
+        <mw-button variant="filled" disabled>Filled</mw-button>
+        <mw-button variant="elevated" disabled>Elevated</mw-button>
+        <mw-button variant="tonal" disabled>Tonal</mw-button>
+        <mw-button variant="outlined" disabled>Outlined</mw-button>
+        <mw-button variant="text" disabled>Text</mw-button>
+        <mw-button variant="destructive" disabled>Destructive</mw-button>
       </div>
     `),
 };
@@ -88,9 +88,9 @@ export const AsLink = {
   render: () =>
     renderHTML(`
       <div style="display:flex;flex-wrap:wrap;gap:0.75rem;align-items:center;">
-        <ds-button variant="filled" href="#overview">Go to overview</ds-button>
-        <ds-button variant="outlined" href="#tokens">Browse tokens</ds-button>
-        <ds-button variant="text" href="#components">All components</ds-button>
+        <mw-button variant="filled" href="#overview">Go to overview</mw-button>
+        <mw-button variant="outlined" href="#tokens">Browse tokens</mw-button>
+        <mw-button variant="text" href="#components">All components</mw-button>
       </div>
     `),
 };
@@ -108,23 +108,23 @@ export const EmphasisHierarchy = {
   render: () =>
     renderHTML(`
       <div style="display:grid;gap:1.5rem;max-width:32rem;">
-        <ds-card variant="outlined">
+        <mw-card variant="outlined">
           <p class="card-label">Publish changes</p>
           <p style="color:var(--color-on-surface-variant);">Review your token changes before publishing to production.</p>
           <div style="display:flex;gap:0.75rem;margin-top:0.75rem;flex-wrap:wrap;">
-            <ds-button variant="filled">Publish</ds-button>
-            <ds-button variant="outlined">Preview</ds-button>
-            <ds-button variant="text">Cancel</ds-button>
+            <mw-button variant="filled">Publish</mw-button>
+            <mw-button variant="outlined">Preview</mw-button>
+            <mw-button variant="text">Cancel</mw-button>
           </div>
-        </ds-card>
-        <ds-card variant="outlined">
+        </mw-card>
+        <mw-card variant="outlined">
           <p class="card-label">Delete token group</p>
           <p style="color:var(--color-on-surface-variant);">This action cannot be undone.</p>
           <div style="display:flex;gap:0.75rem;margin-top:0.75rem;flex-wrap:wrap;">
-            <ds-button variant="destructive">Delete permanently</ds-button>
-            <ds-button variant="text">Cancel</ds-button>
+            <mw-button variant="destructive">Delete permanently</mw-button>
+            <mw-button variant="text">Cancel</mw-button>
           </div>
-        </ds-card>
+        </mw-card>
       </div>
     `),
 };

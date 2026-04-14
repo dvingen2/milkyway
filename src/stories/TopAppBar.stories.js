@@ -24,10 +24,10 @@ export default {
   render: ({ headline }) =>
     renderHTML(`
       <div style="padding:1.5rem;">
-        <ds-top-app-bar headline="${headline}">
-          <ds-icon-button slot="leading" aria-label="Menu">☰</ds-icon-button>
-          <ds-icon-button slot="trailing" aria-label="Search">⌕</ds-icon-button>
-        </ds-top-app-bar>
+        <mw-top-app-bar headline="${headline}">
+          <mw-icon-button slot="leading" aria-label="Menu">☰</mw-icon-button>
+          <mw-icon-button slot="trailing" aria-label="Search">⌕</mw-icon-button>
+        </mw-top-app-bar>
       </div>
     `),
 };
@@ -39,13 +39,13 @@ export const WithBadge = {
   render: () =>
     renderHTML(`
       <div style="padding:1.5rem;">
-        <ds-top-app-bar headline="Notifications">
-          <ds-icon-button slot="leading" aria-label="Back">←</ds-icon-button>
+        <mw-top-app-bar headline="Notifications">
+          <mw-icon-button slot="leading" aria-label="Back">←</mw-icon-button>
           <div slot="trailing" style="position:relative;display:inline-flex;">
-            <ds-icon-button variant="standard" aria-label="Filter">◧</ds-icon-button>
-            <ds-badge value="2" style="position:absolute;top:-0.25rem;right:-0.25rem;"></ds-badge>
+            <mw-icon-button variant="standard" aria-label="Filter">◧</mw-icon-button>
+            <mw-badge value="2" style="position:absolute;top:-0.25rem;right:-0.25rem;"></mw-badge>
           </div>
-        </ds-top-app-bar>
+        </mw-top-app-bar>
       </div>
     `),
 };
@@ -55,11 +55,11 @@ export const WithSupportLabel = {
   render: () =>
     renderHTML(`
       <div style="padding:1.5rem;">
-        <ds-top-app-bar headline="Token editor">
-          <ds-icon-button slot="leading" aria-label="Back">←</ds-icon-button>
+        <mw-top-app-bar headline="Token editor">
+          <mw-icon-button slot="leading" aria-label="Back">←</mw-icon-button>
           <span slot="trailing" class="app-bar-support">12 tokens</span>
-          <ds-icon-button slot="trailing" aria-label="More options">⋯</ds-icon-button>
-        </ds-top-app-bar>
+          <mw-icon-button slot="trailing" aria-label="More options">⋯</mw-icon-button>
+        </mw-top-app-bar>
       </div>
     `),
 };
@@ -69,10 +69,10 @@ export const NoLeadingAction = {
   render: () =>
     renderHTML(`
       <div style="padding:1.5rem;">
-        <ds-top-app-bar headline="Overview">
-          <ds-icon-button slot="trailing" aria-label="Settings">⚙</ds-icon-button>
-          <ds-icon-button slot="trailing" aria-label="Account">◎</ds-icon-button>
-        </ds-top-app-bar>
+        <mw-top-app-bar headline="Overview">
+          <mw-icon-button slot="trailing" aria-label="Settings">⚙</mw-icon-button>
+          <mw-icon-button slot="trailing" aria-label="Account">◎</mw-icon-button>
+        </mw-top-app-bar>
       </div>
     `),
 };
@@ -91,21 +91,21 @@ export const InPageLayout = {
     renderHTML(`
       <div style="display:grid;grid-template-rows:auto 1fr;height:32rem;background:var(--layer-backdrop);">
         <div style="padding:1rem 1rem 0;">
-          <ds-top-app-bar headline="Design tokens">
-            <ds-icon-button slot="leading" aria-label="Menu">☰</ds-icon-button>
-            <ds-icon-button slot="trailing" aria-label="Search">⌕</ds-icon-button>
-          </ds-top-app-bar>
+          <mw-top-app-bar headline="Design tokens">
+            <mw-icon-button slot="leading" aria-label="Menu">☰</mw-icon-button>
+            <mw-icon-button slot="trailing" aria-label="Search">⌕</mw-icon-button>
+          </mw-top-app-bar>
         </div>
         <div style="display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:1rem;overflow:hidden;">
-          <ds-navigation-rail items='[
+          <mw-navigation-rail items='[
             {"icon":"⌂","label":"Home","active":true},
             {"icon":"◫","label":"Tokens"},
             {"icon":"⌘","label":"Components"}
-          ]'></ds-navigation-rail>
-          <ds-card variant="filled" style="overflow:auto;">
+          ]'></mw-navigation-rail>
+          <mw-card variant="filled" style="overflow:auto;">
             <p class="card-label">Content area</p>
             <p style="color:var(--color-on-surface-variant);">Main content goes here.</p>
-          </ds-card>
+          </mw-card>
         </div>
       </div>
     `),

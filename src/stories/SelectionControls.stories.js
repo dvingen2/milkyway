@@ -32,7 +32,7 @@ export const Checkbox = {
   args: { label: "Accept terms", checked: false, disabled: false },
   render: ({ label, checked, disabled }) =>
     renderHTML(
-      `<ds-checkbox label="${label}"${checked ? " checked" : ""}${disabled ? " disabled" : ""}></ds-checkbox>`,
+      `<mw-checkbox label="${label}"${checked ? " checked" : ""}${disabled ? " disabled" : ""}></mw-checkbox>`,
     ),
 };
 
@@ -41,10 +41,10 @@ export const CheckboxStates = {
   render: () =>
     renderHTML(`
       <div style="display:grid;gap:0.75rem;">
-        <ds-checkbox label="Unchecked"></ds-checkbox>
-        <ds-checkbox checked label="Checked"></ds-checkbox>
-        <ds-checkbox label="Disabled unchecked" disabled></ds-checkbox>
-        <ds-checkbox checked disabled label="Disabled checked"></ds-checkbox>
+        <mw-checkbox label="Unchecked"></mw-checkbox>
+        <mw-checkbox checked label="Checked"></mw-checkbox>
+        <mw-checkbox label="Disabled unchecked" disabled></mw-checkbox>
+        <mw-checkbox checked disabled label="Disabled checked"></mw-checkbox>
       </div>
     `),
 };
@@ -68,7 +68,7 @@ export const Radio = {
   args: { label: "Option A", checked: false, disabled: false },
   render: ({ label, checked, disabled }) =>
     renderHTML(
-      `<ds-radio name="radio-playground" label="${label}"${checked ? " checked" : ""}${disabled ? " disabled" : ""}></ds-radio>`,
+      `<mw-radio name="radio-playground" label="${label}"${checked ? " checked" : ""}${disabled ? " disabled" : ""}></mw-radio>`,
     ),
 };
 
@@ -77,10 +77,10 @@ export const RadioGroup = {
   render: () =>
     renderHTML(`
       <div style="display:grid;gap:0.75rem;">
-        <ds-radio checked name="group-demo" label="Outlined (default)"></ds-radio>
-        <ds-radio name="group-demo" label="Filled variant"></ds-radio>
-        <ds-radio name="group-demo" label="Elevated variant"></ds-radio>
-        <ds-radio disabled name="group-demo" label="Deprecated (disabled)"></ds-radio>
+        <mw-radio checked name="group-demo" label="Outlined (default)"></mw-radio>
+        <mw-radio name="group-demo" label="Filled variant"></mw-radio>
+        <mw-radio name="group-demo" label="Elevated variant"></mw-radio>
+        <mw-radio disabled name="group-demo" label="Deprecated (disabled)"></mw-radio>
       </div>
     `),
 };
@@ -104,7 +104,7 @@ export const Switch = {
   args: { label: "Enable notifications", checked: false, disabled: false },
   render: ({ label, checked, disabled }) =>
     renderHTML(
-      `<ds-switch label="${label}"${checked ? " checked" : ""}${disabled ? " disabled" : ""}></ds-switch>`,
+      `<mw-switch label="${label}"${checked ? " checked" : ""}${disabled ? " disabled" : ""}></mw-switch>`,
     ),
 };
 
@@ -113,10 +113,10 @@ export const SwitchStates = {
   render: () =>
     renderHTML(`
       <div style="display:grid;gap:0.75rem;">
-        <ds-switch label="Off"></ds-switch>
-        <ds-switch checked label="On"></ds-switch>
-        <ds-switch disabled label="Disabled off"></ds-switch>
-        <ds-switch checked disabled label="Disabled on"></ds-switch>
+        <mw-switch label="Off"></mw-switch>
+        <mw-switch checked label="On"></mw-switch>
+        <mw-switch disabled label="Disabled off"></mw-switch>
+        <mw-switch checked disabled label="Disabled on"></mw-switch>
       </div>
     `),
 };
@@ -137,15 +137,15 @@ export const InAForm = {
     const el = renderHTML(`
       <div style="max-width:28rem;display:grid;gap:1.5rem;">
         <form id="demo-form" style="display:grid;gap:1rem;">
-          <ds-checkbox name="terms" label="Accept terms of service"></ds-checkbox>
+          <mw-checkbox name="terms" label="Accept terms of service"></mw-checkbox>
           <fieldset style="border:0;padding:0;margin:0;display:grid;gap:0.5rem;">
             <legend style="font:var(--type-label-large);color:var(--color-on-surface-variant);margin-bottom:0.35rem;">Preferred export format</legend>
-            <ds-radio name="format" value="css" label="CSS variables" checked></ds-radio>
-            <ds-radio name="format" value="json" label="JSON tokens"></ds-radio>
-            <ds-radio name="format" value="ts" label="TypeScript constants"></ds-radio>
+            <mw-radio name="format" value="css" label="CSS variables" checked></mw-radio>
+            <mw-radio name="format" value="json" label="JSON tokens"></mw-radio>
+            <mw-radio name="format" value="ts" label="TypeScript constants"></mw-radio>
           </fieldset>
-          <ds-switch name="notifications" label="Email notifications"></ds-switch>
-          <ds-button variant="filled" type="submit">Submit</ds-button>
+          <mw-switch name="notifications" label="Email notifications"></mw-switch>
+          <mw-button variant="filled" type="submit">Submit</mw-button>
         </form>
         <pre id="form-output" style="padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;min-height:2rem;"></pre>
       </div>

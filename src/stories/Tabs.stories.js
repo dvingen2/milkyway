@@ -28,7 +28,7 @@ export default {
   render: ({ items }) =>
     renderHTML(`
       <div style="width:36rem;">
-        <ds-tabs items='${JSON.stringify(items)}'></ds-tabs>
+        <mw-tabs items='${JSON.stringify(items)}'></mw-tabs>
       </div>
     `),
 };
@@ -78,14 +78,14 @@ export const WithContentPanel = {
 
     const el = renderHTML(`
       <div style="width:36rem;display:grid;gap:0;">
-        <ds-tabs id="demo-tabs" items='${JSON.stringify(defaultItems)}'></ds-tabs>
+        <mw-tabs id="demo-tabs" items='${JSON.stringify(defaultItems)}'></mw-tabs>
         <div id="panel" style="padding:1.5rem;background:var(--layer-surface);border:1px solid var(--color-outline-variant);border-top:0;border-radius:0 0 var(--radius-md) var(--radius-md);">
           ${panels[0]}
         </div>
       </div>
     `);
 
-    el.querySelector("#demo-tabs").addEventListener("ds-change", (e) => {
+    el.querySelector("#demo-tabs").addEventListener("mw-change", (e) => {
       el.querySelector("#panel").innerHTML = panels[e.detail.index] ?? "";
     });
 
@@ -105,11 +105,11 @@ export const ProgrammaticSelect = {
   render: () => {
     const el = renderHTML(`
       <div style="display:grid;gap:1rem;width:36rem;">
-        <ds-tabs id="prog-tabs" items='${JSON.stringify(defaultItems)}'></ds-tabs>
+        <mw-tabs id="prog-tabs" items='${JSON.stringify(defaultItems)}'></mw-tabs>
         <div style="display:flex;gap:0.5rem;">
-          <ds-button variant="outlined" data-idx="0">Tab 1</ds-button>
-          <ds-button variant="outlined" data-idx="1">Tab 2</ds-button>
-          <ds-button variant="outlined" data-idx="2">Tab 3</ds-button>
+          <mw-button variant="outlined" data-idx="0">Tab 1</mw-button>
+          <mw-button variant="outlined" data-idx="1">Tab 2</mw-button>
+          <mw-button variant="outlined" data-idx="2">Tab 3</mw-button>
         </div>
       </div>
     `);

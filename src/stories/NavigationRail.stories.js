@@ -27,7 +27,7 @@ export default {
   },
   args: { items: defaultItems },
   render: ({ items }) =>
-    renderHTML(`<ds-navigation-rail items='${JSON.stringify(items)}'></ds-navigation-rail>`),
+    renderHTML(`<mw-navigation-rail items='${JSON.stringify(items)}'></mw-navigation-rail>`),
 };
 
 export const Playground = {};
@@ -76,15 +76,15 @@ export const InLayout = {
 
     const el = renderHTML(`
       <div style="display:grid;grid-template-columns:auto 1fr;gap:1rem;height:28rem;background:var(--layer-backdrop);padding:1rem;border-radius:var(--radius-lg);">
-        <ds-navigation-rail id="demo-rail" items='${JSON.stringify(defaultItems)}'></ds-navigation-rail>
-        <ds-card variant="filled" style="overflow:auto;">
+        <mw-navigation-rail id="demo-rail" items='${JSON.stringify(defaultItems)}'></mw-navigation-rail>
+        <mw-card variant="filled" style="overflow:auto;">
           <p class="card-label" id="section-label">Home</p>
           <p style="color:var(--color-on-surface-variant);" id="section-body">Select a section in the rail.</p>
-        </ds-card>
+        </mw-card>
       </div>
     `);
 
-    el.querySelector("#demo-rail").addEventListener("ds-navigate", (e) => {
+    el.querySelector("#demo-rail").addEventListener("mw-navigate", (e) => {
       el.querySelector("#section-label").textContent = e.detail.item.label;
       el.querySelector("#section-body").textContent = `Showing content for: ${e.detail.item.label}`;
     });
@@ -98,14 +98,14 @@ export const EventHandling = {
   render: () => {
     const el = renderHTML(`
       <div style="display:flex;gap:2rem;align-items:flex-start;">
-        <ds-navigation-rail id="event-rail" items='${JSON.stringify(defaultItems)}'></ds-navigation-rail>
+        <mw-navigation-rail id="event-rail" items='${JSON.stringify(defaultItems)}'></mw-navigation-rail>
         <p id="output" style="font:var(--type-body-medium);color:var(--color-on-surface-variant);padding-top:0.5rem;min-height:1.5rem;">
           Click a rail item to see the event.
         </p>
       </div>
     `);
 
-    el.querySelector("#event-rail").addEventListener("ds-navigate", (e) => {
+    el.querySelector("#event-rail").addEventListener("mw-navigate", (e) => {
       el.querySelector("#output").textContent =
         `ds-navigate: index ${e.detail.index} — "${e.detail.item.label}"`;
     });

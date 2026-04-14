@@ -83,7 +83,7 @@ switchTemplate.innerHTML = `
   </label>
 `;
 
-export class DsSwitch extends HTMLElement {
+export class MwSwitch extends HTMLElement {
   static formAssociated = true;
 
   constructor() {
@@ -142,4 +142,4 @@ export class DsSwitch extends HTMLElement {
   }
 }
 
-customElements.define("ds-switch", DsSwitch);
+customElements.define("mw-switch", MwSwitch);

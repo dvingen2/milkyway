@@ -4,10 +4,10 @@
  * Copy this file into your project and uncomment the variables you want
  * to change. Load it AFTER the Surface System stylesheet:
  *
- *   <link rel="stylesheet" href="surface-system/styles">
+ *   <link rel="stylesheet" href="milkyway/styles">
  *   <link rel="stylesheet" href="./theme.css">
  *
- * All token definitions in Surface System live inside @layer surface-system.*
+ * All token definitions in Surface System live inside @layer milkyway.*
  * Your unlayered rules here automatically take higher cascade priority —
  * no !important needed.
  *

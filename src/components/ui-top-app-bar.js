@@ -43,7 +43,7 @@ topAppBarTemplate.innerHTML = `
   </header>
 `;
 
-export class DsTopAppBar extends HTMLElement {
+export class MwTopAppBar extends HTMLElement {
   static get observedAttributes() { return ["headline"]; }
 
   connectedCallback() {
@@ -65,4 +65,4 @@ export class DsTopAppBar extends HTMLElement {
   }
 }
 
-customElements.define("ds-top-app-bar", DsTopAppBar);
+customElements.define("mw-top-app-bar", MwTopAppBar);

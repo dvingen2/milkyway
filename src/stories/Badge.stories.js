@@ -28,7 +28,7 @@ export default {
   },
   render: ({ value, variant }) =>
     renderHTML(
-      `<ds-badge value="${value}" variant="${variant}"></ds-badge>`,
+      `<mw-badge value="${value}" variant="${variant}"></mw-badge>`,
     ),
 };
 
@@ -61,16 +61,16 @@ export const OnAnIcon = {
     renderHTML(`
       <div style="display:inline-flex;align-items:flex-start;gap:1.5rem;">
         <div style="position:relative;display:inline-flex;">
-          <ds-icon-button variant="standard" aria-label="Notifications">◌</ds-icon-button>
-          <ds-badge value="3" style="position:absolute;top:-0.25rem;right:-0.25rem;"></ds-badge>
+          <mw-icon-button variant="standard" aria-label="Notifications">◌</mw-icon-button>
+          <mw-badge value="3" style="position:absolute;top:-0.25rem;right:-0.25rem;"></mw-badge>
         </div>
         <div style="position:relative;display:inline-flex;">
-          <ds-icon-button variant="standard" aria-label="Messages">✉</ds-icon-button>
-          <ds-badge variant="dot" style="position:absolute;top:0.125rem;right:0.125rem;"></ds-badge>
+          <mw-icon-button variant="standard" aria-label="Messages">✉</mw-icon-button>
+          <mw-badge variant="dot" style="position:absolute;top:0.125rem;right:0.125rem;"></mw-badge>
         </div>
         <div style="position:relative;display:inline-flex;">
-          <ds-icon-button variant="tonal" aria-label="Alerts">⚑</ds-icon-button>
-          <ds-badge value="99+" style="position:absolute;top:-0.25rem;right:-0.5rem;"></ds-badge>
+          <mw-icon-button variant="tonal" aria-label="Alerts">⚑</mw-icon-button>
+          <mw-badge value="99+" style="position:absolute;top:-0.25rem;right:-0.5rem;"></mw-badge>
         </div>
       </div>
     `),
@@ -81,13 +81,13 @@ export const InAppBar = {
   render: () =>
     renderHTML(`
       <div style="width:48rem;">
-        <ds-top-app-bar headline="Notifications">
-          <ds-icon-button slot="leading" aria-label="Menu">☰</ds-icon-button>
+        <mw-top-app-bar headline="Notifications">
+          <mw-icon-button slot="leading" aria-label="Menu">☰</mw-icon-button>
           <div slot="trailing" style="position:relative;display:inline-flex;">
-            <ds-icon-button variant="standard" aria-label="Alerts">◌</ds-icon-button>
-            <ds-badge value="5" style="position:absolute;top:-0.25rem;right:-0.25rem;"></ds-badge>
+            <mw-icon-button variant="standard" aria-label="Alerts">◌</mw-icon-button>
+            <mw-badge value="5" style="position:absolute;top:-0.25rem;right:-0.25rem;"></mw-badge>
           </div>
-        </ds-top-app-bar>
+        </mw-top-app-bar>
       </div>
     `),
 };

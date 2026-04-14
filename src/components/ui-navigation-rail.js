@@ -61,7 +61,7 @@ railTemplate.innerHTML = `
   <nav part="nav" aria-label="Main navigation"></nav>
 `;
 
-export class DsNavigationRail extends HTMLElement {
+export class MwNavigationRail extends HTMLElement {
   static get observedAttributes() { return ["items"]; }
 
   /** @type {Array<{label: string, icon?: string, href?: string, active?: boolean}>|null} */
@@ -122,7 +122,7 @@ export class DsNavigationRail extends HTMLElement {
         el.addEventListener("click", () => {
           const index = Number(el.dataset.index);
           const item = this.items[index];
-          this.dispatchEvent(new CustomEvent("ds-navigate", {
+          this.dispatchEvent(new CustomEvent("mw-navigate", {
             bubbles: true,
             composed: true,
             detail: { index, item },
@@ -133,4 +133,4 @@ export class DsNavigationRail extends HTMLElement {
   }
 }
 
-customElements.define("ds-navigation-rail", DsNavigationRail);
+customElements.define("mw-navigation-rail", MwNavigationRail);

@@ -93,7 +93,7 @@ chipTemplate.innerHTML = `
 
 const KINDS = ["assist", "filter", "input", "suggestion"];
 
-export class DsChip extends HTMLElement {
+export class MwChip extends HTMLElement {
   static get observedAttributes() {
     return ["selected", "kind", "leading-icon", "trailing-icon", "dismissible"];
   }
@@ -155,7 +155,7 @@ export class DsChip extends HTMLElement {
     if (dismissBtn) {
       dismissBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        this.dispatchEvent(new CustomEvent("ds-dismiss", { bubbles: true, composed: true }));
+        this.dispatchEvent(new CustomEvent("mw-dismiss", { bubbles: true, composed: true }));
       });
     }
 
@@ -164,7 +164,7 @@ export class DsChip extends HTMLElement {
       button.addEventListener("click", () => {
         const next = !this.selected;
         this.selected = next;
-        this.dispatchEvent(new CustomEvent("ds-change", {
+        this.dispatchEvent(new CustomEvent("mw-change", {
           bubbles: true,
           composed: true,
           detail: { selected: next },
@@ -174,4 +174,4 @@ export class DsChip extends HTMLElement {
   }
 }
 
-customElements.define("ds-chip", DsChip);
+customElements.define("mw-chip", MwChip);
