@@ -1,0 +1,71 @@
+@layer surface-system.tokens {
+  :root {
+    color-scheme: light dark;
+
+    /*
+     * Key color components — defined in oklch for perceptual uniformity.
+     * These are the only values a consuming project needs to override
+     * to fully retheme the system. Change --_*-h (hue) and --_*-c
+     * (peak chroma); the entire tonal palette is derived from these.
+     *
+     * --_*-h  : oklch hue in degrees
+     * --_*-c  : oklch chroma at the key tone (peak saturation)
+     *
+     * oklch hue reference: red≈27°, yellow≈89°, green≈142°,
+     *   cyan≈194°, blue≈265°, purple≈303°, magenta≈330°
+     */
+
+    /* Primary — teal */
+    --_primary-h: 194;
+    --_primary-c: 0.108;
+
+    /* Secondary — muted blue-gray */
+    --_secondary-h: 199;
+    --_secondary-c: 0.034;
+
+    /* Tertiary — purple (key tone sits at 52% L rather than standard 47%) */
+    --_tertiary-h: 303;
+    --_tertiary-c: 0.093;
+    --_tertiary-key-l: 52%;
+
+    /* Neutral — cool gray, very low chroma (key tone at 55% L = tone 50) */
+    --_neutral-h: 202;
+    --_neutral-c: 0.012;
+
+    /* Neutral variant — slightly more chromatic */
+    --_neutral-variant-h: 202;
+    --_neutral-variant-c: 0.016;
+
+    /* Error — warm red */
+    --_error-h: 27;
+    --_error-c: 0.150;
+
+    /* Success — green */
+    --_success-h: 148;
+    --_success-c: 0.120;
+
+    /* Warning — amber (key tone sits at 68% L for perceptual accuracy) */
+    --_warning-h: 75;
+    --_warning-c: 0.155;
+    --_warning-key-l: 68%;
+
+    /* Info — blue */
+    --_info-h: 234;
+    --_info-c: 0.138;
+
+    /*
+     * Semantic key color aliases.
+     * These reference the computed palette rather than hardcoded values,
+     * so they update automatically when the above components are overridden.
+     */
+    --key-primary:         var(--palette-primary-40);
+    --key-secondary:       var(--palette-secondary-40);
+    --key-tertiary:        var(--palette-tertiary-40);
+    --key-neutral:         var(--palette-neutral-50);
+    --key-neutral-variant: var(--palette-neutral-variant-50);
+    --key-error:           var(--palette-error-40);
+    --key-success:         var(--palette-success-40);
+    --key-warning:         var(--palette-warning-40);
+    --key-info:            var(--palette-info-40);
+  }
+}

@@ -1,0 +1,53 @@
+/*
+ * Default display values for custom elements.
+ * Custom elements are inline by default; this establishes block/inline-flex
+ * display before the shadow root attaches, preventing layout flash.
+ * This file IS part of the library distribution (unlike base.css).
+ */
+@layer surface-system.base {
+  :where(ds-button, ds-chip, ds-icon-button) {
+    display: inline-flex;
+  }
+
+  :where(
+    ds-card,
+    ds-divider,
+    ds-list,
+    ds-top-app-bar,
+    ds-tabs,
+    ds-navigation-rail,
+    ds-snackbar,
+    ds-progress,
+    ds-menu,
+    ds-badge,
+    ds-dialog
+  ) {
+    display: block;
+  }
+
+  :where(ds-text-field, ds-checkbox, ds-radio, ds-switch) {
+    display: inline-block;
+  }
+
+  :where(ds-text-field) {
+    width: 100%;
+  }
+
+  :where(ds-list, ds-top-app-bar, ds-tabs, ds-navigation-rail, ds-snackbar, ds-progress) {
+    width: 100%;
+  }
+
+  /*
+   * Reduced motion — honour the user's system preference globally.
+   * Collapses all motion tokens to instant transitions across every ds-*
+   * component. Components use CSS custom properties for transitions so this
+   * single rule is sufficient; no per-component overrides needed.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      --motion-fast:   0ms;
+      --motion-medium: 0ms;
+      --motion-slow:   0ms;
+    }
+  }
+}

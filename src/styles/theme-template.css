@@ -1,0 +1,126 @@
+/*
+ * Surface System — theme override template
+ * ─────────────────────────────────────────
+ * Copy this file into your project and uncomment the variables you want
+ * to change. Load it AFTER the Surface System stylesheet:
+ *
+ *   <link rel="stylesheet" href="surface-system/styles">
+ *   <link rel="stylesheet" href="./theme.css">
+ *
+ * All token definitions in Surface System live inside @layer surface-system.*
+ * Your unlayered rules here automatically take higher cascade priority —
+ * no !important needed.
+ *
+ * THREE LEVELS OF CUSTOMISATION (choose one or combine):
+ *
+ *   Level 1 — Direct role override (recommended starting point)
+ *     Override semantic roles like --color-primary directly.
+ *     Fastest path to a custom look; no colour science required.
+ *
+ *   Level 2 — Key color components (generates a full tonal palette)
+ *     Override --_primary-h (oklch hue) and --_primary-c (chroma).
+ *     The entire palette recomputes automatically.
+ *
+ *   Level 3 — Individual palette tones (maximum control)
+ *     Override specific --palette-*-* values for exact brand matches.
+ *
+ * The sections below cover Level 1. See the Theming documentation in
+ * Storybook (Foundations → Theming) for all three levels with examples.
+ */
+
+/* ─── Level 1: Direct role override ──────────────────────────────────── */
+
+:root {
+  /* ── Primary colour family ───────────────────────────────────────────
+   * Used by: filled button, focus rings, checkbox, radio, switch,
+   *           text field focus border, active tab/chip indicator.
+   *
+   * Minimum viable override: --color-primary + --color-on-primary
+   * For full fidelity also set the container pair.
+   */
+  /* --color-primary:           oklch(47% 0.20 265); */
+  /* --color-on-primary:        oklch(100% 0 0);     */
+  /* --color-primary-container: oklch(88% 0.10 265); */
+  /* --color-on-primary-container: oklch(18% 0.14 265); */
+
+  /* ── Secondary colour family ─────────────────────────────────────────
+   * Used by: tonal button, filter/input chip selected state,
+   *           active tab + nav rail indicator, selection state layer.
+   */
+  /* --color-secondary:           oklch(47% 0.06 265); */
+  /* --color-on-secondary:        oklch(100% 0 0);     */
+  /* --color-secondary-container: oklch(88% 0.04 265); */
+  /* --color-on-secondary-container: oklch(18% 0.06 265); */
+
+  /* ── Tertiary colour family ──────────────────────────────────────────
+   * Used by: accent surfaces, card labels, decorative highlights.
+   */
+  /* --color-tertiary:           oklch(52% 0.09 303); */
+  /* --color-on-tertiary:        oklch(100% 0 0);     */
+  /* --color-tertiary-container: oklch(89% 0.04 303); */
+  /* --color-on-tertiary-container: oklch(18% 0.07 303); */
+
+  /* ── Surface hierarchy ───────────────────────────────────────────────
+   * Used by: card backgrounds, list backgrounds, field backgrounds.
+   * --layer-* are the preferred aliases; you rarely need to override the
+   * lower-level --color-surface-container-* variables.
+   */
+  /* --layer-backdrop:  #f8f8f8; */
+  /* --layer-surface:   #ffffff; */
+  /* --layer-surface-1: #f5f5f5; */
+  /* --layer-surface-2: #efefef; */
+  /* --layer-surface-3: #e8e8e8; */
+  /* --layer-surface-4: #e0e0e0; */
+
+  /* ── Text and outline ────────────────────────────────────────────────
+   * Used by: all body copy, labels, borders.
+   */
+  /* --color-on-surface:         #1a1a1a; */
+  /* --color-on-surface-variant: #5a5a5a; */
+  /* --color-outline:            #8a8a8a; */
+  /* --color-outline-variant:    #d0d0d0; */
+
+  /* ── Error family ────────────────────────────────────────────────────
+   * Used by: destructive button, text field error state, error badge.
+   */
+  /* --color-error:           oklch(47% 0.15 27); */
+  /* --color-on-error:        oklch(100% 0 0);    */
+  /* --color-error-container: oklch(88% 0.07 27); */
+  /* --color-on-error-container: oklch(18% 0.10 27); */
+}
+
+
+/* ─── Dark mode overrides (optional) ─────────────────────────────────── */
+/*
+ * If you only set roles in :root above, those values apply in both
+ * light and dark mode (the system's own dark-mode remapping is in a
+ * lower-priority layer and won't override your unlayered rules).
+ *
+ * To provide explicit dark variants, add rules here. These are also
+ * unlayered, so they win over the system's dark palette.
+ */
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-primary:           oklch(80% 0.12 265);
+    --color-on-primary:        oklch(20% 0.18 265);
+    --color-primary-container: oklch(30% 0.16 265);
+    --color-on-primary-container: oklch(90% 0.08 265);
+
+    --layer-backdrop:  #111;
+    --layer-surface:   #161616;
+    --layer-surface-1: #1e1e1e;
+    --layer-surface-2: #242424;
+    --layer-surface-3: #2c2c2c;
+    --layer-surface-4: #323232;
+  }
+}
+
+[data-theme="dark"] {
+  --color-primary:           oklch(80% 0.12 265);
+  --color-on-primary:        oklch(20% 0.18 265);
+  --color-primary-container: oklch(30% 0.16 265);
+  --color-on-primary-container: oklch(90% 0.08 265);
+}
+*/

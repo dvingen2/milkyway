@@ -1,0 +1,180 @@
+@layer surface-system.tokens {
+  :root {
+    /*
+     * Tonal palettes computed from key color components (defined in color-keys.css).
+     *
+     * Architecture:
+     *   – Lightness (L) per tone step is fixed: calibrated to the M3 tone scale,
+     *     where tone T maps to oklch L ≈ T% with a slight perceptual correction.
+     *   – Chroma scales from peak (at the key tone) toward 0 at tone 0 and 100.
+     *     Per-tone chroma factors are empirically calibrated to match HCT behaviour.
+     *   – Hue is constant across all tones in a palette.
+     *
+     * To create a new theme, override in :root before this file is loaded:
+     *   --_primary-h: 265;    (blue)
+     *   --_primary-c: 0.14;   (higher chroma)
+     * The entire primary palette re-computes automatically.
+     *
+     * Lightness scale (tone → oklch L):
+     *   0→0%  10→18%  20→28%  30→38%  40→47%  50→56%  60→64%
+     *   70→72%  80→80%  90→88%  95→93%  98→97%  99→98.5%  100→100%
+     */
+
+    /* ── Primary ────────────────────────────────────────────────── */
+    --palette-primary-0:   oklch(0%      0                              var(--_primary-h));
+    --palette-primary-10:  oklch(18%     calc(var(--_primary-c) * 0.52) var(--_primary-h));
+    --palette-primary-20:  oklch(28%     calc(var(--_primary-c) * 0.72) var(--_primary-h));
+    --palette-primary-30:  oklch(38%     calc(var(--_primary-c) * 0.90) var(--_primary-h));
+    --palette-primary-40:  oklch(47%     var(--_primary-c)               var(--_primary-h));
+    --palette-primary-50:  oklch(56%     calc(var(--_primary-c) * 0.97) var(--_primary-h));
+    --palette-primary-60:  oklch(64%     calc(var(--_primary-c) * 0.90) var(--_primary-h));
+    --palette-primary-70:  oklch(72%     calc(var(--_primary-c) * 0.82) var(--_primary-h));
+    --palette-primary-80:  oklch(80%     calc(var(--_primary-c) * 0.70) var(--_primary-h));
+    --palette-primary-90:  oklch(88%     calc(var(--_primary-c) * 0.43) var(--_primary-h));
+    --palette-primary-95:  oklch(93%     calc(var(--_primary-c) * 0.22) var(--_primary-h));
+    --palette-primary-98:  oklch(97%     calc(var(--_primary-c) * 0.07) var(--_primary-h));
+    --palette-primary-99:  oklch(98.5%   calc(var(--_primary-c) * 0.03) var(--_primary-h));
+    --palette-primary-100: oklch(100%    0                               var(--_primary-h));
+
+    /* ── Secondary ──────────────────────────────────────────────── */
+    --palette-secondary-0:   oklch(0%    0                                var(--_secondary-h));
+    --palette-secondary-10:  oklch(18%   calc(var(--_secondary-c) * 0.52) var(--_secondary-h));
+    --palette-secondary-20:  oklch(28%   calc(var(--_secondary-c) * 0.72) var(--_secondary-h));
+    --palette-secondary-30:  oklch(38%   calc(var(--_secondary-c) * 0.90) var(--_secondary-h));
+    --palette-secondary-40:  oklch(47%   var(--_secondary-c)               var(--_secondary-h));
+    --palette-secondary-50:  oklch(56%   calc(var(--_secondary-c) * 0.97) var(--_secondary-h));
+    --palette-secondary-60:  oklch(64%   calc(var(--_secondary-c) * 0.90) var(--_secondary-h));
+    --palette-secondary-70:  oklch(72%   calc(var(--_secondary-c) * 0.82) var(--_secondary-h));
+    --palette-secondary-80:  oklch(80%   calc(var(--_secondary-c) * 0.70) var(--_secondary-h));
+    --palette-secondary-90:  oklch(88%   calc(var(--_secondary-c) * 0.43) var(--_secondary-h));
+    --palette-secondary-95:  oklch(93%   calc(var(--_secondary-c) * 0.22) var(--_secondary-h));
+    --palette-secondary-98:  oklch(97%   calc(var(--_secondary-c) * 0.07) var(--_secondary-h));
+    --palette-secondary-99:  oklch(98.5% calc(var(--_secondary-c) * 0.03) var(--_secondary-h));
+    --palette-secondary-100: oklch(100%  0                                 var(--_secondary-h));
+
+    /* ── Tertiary ───────────────────────────────────────────────── */
+    /* Tertiary key tone sits at 52% L (see --_tertiary-key-l in color-keys.css) */
+    --palette-tertiary-0:   oklch(0%                      0                               var(--_tertiary-h));
+    --palette-tertiary-10:  oklch(18%                     calc(var(--_tertiary-c) * 0.48) var(--_tertiary-h));
+    --palette-tertiary-20:  oklch(28%                     calc(var(--_tertiary-c) * 0.66) var(--_tertiary-h));
+    --palette-tertiary-30:  oklch(38%                     calc(var(--_tertiary-c) * 0.83) var(--_tertiary-h));
+    --palette-tertiary-40:  oklch(var(--_tertiary-key-l, 47%) var(--_tertiary-c)          var(--_tertiary-h));
+    --palette-tertiary-50:  oklch(60%                     calc(var(--_tertiary-c) * 0.97) var(--_tertiary-h));
+    --palette-tertiary-60:  oklch(67%                     calc(var(--_tertiary-c) * 0.90) var(--_tertiary-h));
+    --palette-tertiary-70:  oklch(74%                     calc(var(--_tertiary-c) * 0.82) var(--_tertiary-h));
+    --palette-tertiary-80:  oklch(81%                     calc(var(--_tertiary-c) * 0.70) var(--_tertiary-h));
+    --palette-tertiary-90:  oklch(89%                     calc(var(--_tertiary-c) * 0.43) var(--_tertiary-h));
+    --palette-tertiary-95:  oklch(93.5%                   calc(var(--_tertiary-c) * 0.22) var(--_tertiary-h));
+    --palette-tertiary-98:  oklch(97%                     calc(var(--_tertiary-c) * 0.07) var(--_tertiary-h));
+    --palette-tertiary-99:  oklch(98.5%                   calc(var(--_tertiary-c) * 0.03) var(--_tertiary-h));
+    --palette-tertiary-100: oklch(100%                    0                               var(--_tertiary-h));
+
+    /* ── Neutral (includes extra M3 dark-surface tone steps) ────── */
+    /* Neutral key tone is at tone 50 (56% L). Chroma is very low throughout. */
+    --palette-neutral-0:   oklch(0%    0                              var(--_neutral-h));
+    --palette-neutral-4:   oklch(9%    calc(var(--_neutral-c) * 0.35) var(--_neutral-h));
+    --palette-neutral-6:   oklch(12%   calc(var(--_neutral-c) * 0.38) var(--_neutral-h));
+    --palette-neutral-10:  oklch(18%   calc(var(--_neutral-c) * 0.44) var(--_neutral-h));
+    --palette-neutral-12:  oklch(20%   calc(var(--_neutral-c) * 0.47) var(--_neutral-h));
+    --palette-neutral-17:  oklch(26%   calc(var(--_neutral-c) * 0.54) var(--_neutral-h));
+    --palette-neutral-20:  oklch(29%   calc(var(--_neutral-c) * 0.58) var(--_neutral-h));
+    --palette-neutral-22:  oklch(32%   calc(var(--_neutral-c) * 0.62) var(--_neutral-h));
+    --palette-neutral-24:  oklch(34%   calc(var(--_neutral-c) * 0.65) var(--_neutral-h));
+    --palette-neutral-30:  oklch(39%   calc(var(--_neutral-c) * 0.73) var(--_neutral-h));
+    --palette-neutral-40:  oklch(47%   calc(var(--_neutral-c) * 0.85) var(--_neutral-h));
+    --palette-neutral-50:  oklch(56%   var(--_neutral-c)               var(--_neutral-h));
+    --palette-neutral-60:  oklch(64%   calc(var(--_neutral-c) * 0.90) var(--_neutral-h));
+    --palette-neutral-70:  oklch(72%   calc(var(--_neutral-c) * 0.80) var(--_neutral-h));
+    --palette-neutral-80:  oklch(80%   calc(var(--_neutral-c) * 0.67) var(--_neutral-h));
+    --palette-neutral-87:  oklch(86%   calc(var(--_neutral-c) * 0.52) var(--_neutral-h));
+    --palette-neutral-90:  oklch(89%   calc(var(--_neutral-c) * 0.44) var(--_neutral-h));
+    --palette-neutral-92:  oklch(91%   calc(var(--_neutral-c) * 0.39) var(--_neutral-h));
+    --palette-neutral-94:  oklch(93%   calc(var(--_neutral-c) * 0.33) var(--_neutral-h));
+    --palette-neutral-95:  oklch(94%   calc(var(--_neutral-c) * 0.29) var(--_neutral-h));
+    --palette-neutral-96:  oklch(95%   calc(var(--_neutral-c) * 0.25) var(--_neutral-h));
+    --palette-neutral-98:  oklch(97%   calc(var(--_neutral-c) * 0.18) var(--_neutral-h));
+    --palette-neutral-99:  oklch(98.5% calc(var(--_neutral-c) * 0.10) var(--_neutral-h));
+    --palette-neutral-100: oklch(100%  0                               var(--_neutral-h));
+
+    /* ── Neutral variant ────────────────────────────────────────── */
+    --palette-neutral-variant-0:   oklch(0%    0                                       var(--_neutral-variant-h));
+    --palette-neutral-variant-10:  oklch(18%   calc(var(--_neutral-variant-c) * 0.52)  var(--_neutral-variant-h));
+    --palette-neutral-variant-20:  oklch(28%   calc(var(--_neutral-variant-c) * 0.68)  var(--_neutral-variant-h));
+    --palette-neutral-variant-30:  oklch(38%   calc(var(--_neutral-variant-c) * 0.83)  var(--_neutral-variant-h));
+    --palette-neutral-variant-40:  oklch(47%   calc(var(--_neutral-variant-c) * 0.93)  var(--_neutral-variant-h));
+    --palette-neutral-variant-50:  oklch(56%   var(--_neutral-variant-c)                var(--_neutral-variant-h));
+    --palette-neutral-variant-60:  oklch(64%   calc(var(--_neutral-variant-c) * 0.92)  var(--_neutral-variant-h));
+    --palette-neutral-variant-70:  oklch(72%   calc(var(--_neutral-variant-c) * 0.83)  var(--_neutral-variant-h));
+    --palette-neutral-variant-80:  oklch(80%   calc(var(--_neutral-variant-c) * 0.71)  var(--_neutral-variant-h));
+    --palette-neutral-variant-90:  oklch(88%   calc(var(--_neutral-variant-c) * 0.45)  var(--_neutral-variant-h));
+    --palette-neutral-variant-95:  oklch(93%   calc(var(--_neutral-variant-c) * 0.25)  var(--_neutral-variant-h));
+    --palette-neutral-variant-98:  oklch(97%   calc(var(--_neutral-variant-c) * 0.10)  var(--_neutral-variant-h));
+    --palette-neutral-variant-99:  oklch(98.5% calc(var(--_neutral-variant-c) * 0.04)  var(--_neutral-variant-h));
+    --palette-neutral-variant-100: oklch(100%  0                                        var(--_neutral-variant-h));
+
+    /* ── Error ──────────────────────────────────────────────────── */
+    --palette-error-0:   oklch(0%    0                             var(--_error-h));
+    --palette-error-10:  oklch(18%   calc(var(--_error-c) * 0.50) var(--_error-h));
+    --palette-error-20:  oklch(28%   calc(var(--_error-c) * 0.68) var(--_error-h));
+    --palette-error-30:  oklch(38%   calc(var(--_error-c) * 0.86) var(--_error-h));
+    --palette-error-40:  oklch(47%   var(--_error-c)               var(--_error-h));
+    --palette-error-50:  oklch(56%   calc(var(--_error-c) * 0.97) var(--_error-h));
+    --palette-error-60:  oklch(64%   calc(var(--_error-c) * 0.88) var(--_error-h));
+    --palette-error-70:  oklch(72%   calc(var(--_error-c) * 0.78) var(--_error-h));
+    --palette-error-80:  oklch(80%   calc(var(--_error-c) * 0.65) var(--_error-h));
+    --palette-error-90:  oklch(88%   calc(var(--_error-c) * 0.38) var(--_error-h));
+    --palette-error-95:  oklch(93%   calc(var(--_error-c) * 0.18) var(--_error-h));
+    --palette-error-98:  oklch(97%   calc(var(--_error-c) * 0.06) var(--_error-h));
+    --palette-error-99:  oklch(98.5% calc(var(--_error-c) * 0.02) var(--_error-h));
+    --palette-error-100: oklch(100%  0                             var(--_error-h));
+
+    /* ── Success ────────────────────────────────────────────────── */
+    --palette-success-0:   oklch(0%    0                               var(--_success-h));
+    --palette-success-10:  oklch(18%   calc(var(--_success-c) * 0.50)  var(--_success-h));
+    --palette-success-20:  oklch(28%   calc(var(--_success-c) * 0.68)  var(--_success-h));
+    --palette-success-30:  oklch(38%   calc(var(--_success-c) * 0.86)  var(--_success-h));
+    --palette-success-40:  oklch(47%   var(--_success-c)                var(--_success-h));
+    --palette-success-50:  oklch(56%   calc(var(--_success-c) * 0.97)  var(--_success-h));
+    --palette-success-60:  oklch(64%   calc(var(--_success-c) * 0.88)  var(--_success-h));
+    --palette-success-70:  oklch(72%   calc(var(--_success-c) * 0.78)  var(--_success-h));
+    --palette-success-80:  oklch(80%   calc(var(--_success-c) * 0.65)  var(--_success-h));
+    --palette-success-90:  oklch(88%   calc(var(--_success-c) * 0.38)  var(--_success-h));
+    --palette-success-95:  oklch(93%   calc(var(--_success-c) * 0.18)  var(--_success-h));
+    --palette-success-98:  oklch(97%   calc(var(--_success-c) * 0.06)  var(--_success-h));
+    --palette-success-99:  oklch(98.5% calc(var(--_success-c) * 0.02)  var(--_success-h));
+    --palette-success-100: oklch(100%  0                                var(--_success-h));
+
+    /* ── Warning ────────────────────────────────────────────────── */
+    /* Key tone sits at 68% L (amber is perceptually bright, matches yellow-green HCT behaviour) */
+    --palette-warning-0:   oklch(0%                       0                               var(--_warning-h));
+    --palette-warning-10:  oklch(18%                      calc(var(--_warning-c) * 0.28)  var(--_warning-h));
+    --palette-warning-20:  oklch(28%                      calc(var(--_warning-c) * 0.46)  var(--_warning-h));
+    --palette-warning-30:  oklch(38%                      calc(var(--_warning-c) * 0.62)  var(--_warning-h));
+    --palette-warning-40:  oklch(47%                      calc(var(--_warning-c) * 0.76)  var(--_warning-h));
+    --palette-warning-50:  oklch(56%                      calc(var(--_warning-c) * 0.88)  var(--_warning-h));
+    --palette-warning-60:  oklch(64%                      calc(var(--_warning-c) * 0.96)  var(--_warning-h));
+    --palette-warning-70:  oklch(var(--_warning-key-l, 68%) var(--_warning-c)             var(--_warning-h));
+    --palette-warning-80:  oklch(80%                      calc(var(--_warning-c) * 0.88)  var(--_warning-h));
+    --palette-warning-90:  oklch(88%                      calc(var(--_warning-c) * 0.58)  var(--_warning-h));
+    --palette-warning-95:  oklch(93%                      calc(var(--_warning-c) * 0.32)  var(--_warning-h));
+    --palette-warning-98:  oklch(97%                      calc(var(--_warning-c) * 0.12)  var(--_warning-h));
+    --palette-warning-99:  oklch(98.5%                    calc(var(--_warning-c) * 0.04)  var(--_warning-h));
+    --palette-warning-100: oklch(100%                     0                               var(--_warning-h));
+
+    /* ── Info ───────────────────────────────────────────────────── */
+    --palette-info-0:   oklch(0%    0                             var(--_info-h));
+    --palette-info-10:  oklch(18%   calc(var(--_info-c) * 0.50)  var(--_info-h));
+    --palette-info-20:  oklch(28%   calc(var(--_info-c) * 0.68)  var(--_info-h));
+    --palette-info-30:  oklch(38%   calc(var(--_info-c) * 0.86)  var(--_info-h));
+    --palette-info-40:  oklch(47%   var(--_info-c)                var(--_info-h));
+    --palette-info-50:  oklch(56%   calc(var(--_info-c) * 0.97)  var(--_info-h));
+    --palette-info-60:  oklch(64%   calc(var(--_info-c) * 0.88)  var(--_info-h));
+    --palette-info-70:  oklch(72%   calc(var(--_info-c) * 0.78)  var(--_info-h));
+    --palette-info-80:  oklch(80%   calc(var(--_info-c) * 0.65)  var(--_info-h));
+    --palette-info-90:  oklch(88%   calc(var(--_info-c) * 0.38)  var(--_info-h));
+    --palette-info-95:  oklch(93%   calc(var(--_info-c) * 0.18)  var(--_info-h));
+    --palette-info-98:  oklch(97%   calc(var(--_info-c) * 0.06)  var(--_info-h));
+    --palette-info-99:  oklch(98.5% calc(var(--_info-c) * 0.02)  var(--_info-h));
+    --palette-info-100: oklch(100%  0                             var(--_info-h));
+  }
+}

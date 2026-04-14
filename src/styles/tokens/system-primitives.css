@@ -1,0 +1,73 @@
+@layer surface-system.tokens {
+:root {
+  /* State layers */
+  --state-hover: rgb(from var(--color-on-surface) r g b / 0.08);
+  --state-focus: rgb(from var(--color-primary) r g b / 0.16);
+  --state-pressed: rgb(from var(--color-on-surface) r g b / 0.12);
+  --state-dragged: rgb(from var(--color-on-surface) r g b / 0.16);
+  --state-disabled-surface: rgb(from var(--color-on-surface) r g b / 0.08);
+  --state-disabled-content: rgb(from var(--color-on-surface) r g b / 0.38);
+  --state-selection: rgb(from var(--color-secondary) r g b / 0.16);
+  --state-activation: rgb(from var(--color-primary) r g b / 0.18);
+
+  /* Utility / documentation helpers */
+  --color-elevation-stroke: rgb(from var(--color-outline) r g b / 0.16);
+  --color-elevation-stroke-strong: rgb(from var(--color-outline) r g b / 0.24);
+  --color-highlight-border: rgb(from var(--color-surface-bright) r g b / 0.12);
+  --color-highlight-shine: rgb(from var(--color-surface-bright) r g b / 0.18);
+  --color-gridline: rgb(from var(--color-outline) r g b / 0.08);
+  --color-grid-mask: rgb(from var(--color-scrim) r g b / 0.26);
+
+  /* Elevation */
+  --shadow-1:
+    0 1px 2px rgb(from var(--color-shadow) r g b / 0.16),
+    0 4px 10px rgb(from var(--color-shadow) r g b / 0.12);
+  --shadow-2:
+    0 8px 24px rgb(from var(--color-shadow) r g b / 0.2),
+    0 2px 8px rgb(from var(--color-shadow) r g b / 0.16);
+  --shadow-3:
+    0 12px 40px rgb(from var(--color-shadow) r g b / 0.26),
+    0 4px 12px rgb(from var(--color-shadow) r g b / 0.18);
+
+  /* Shape */
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.875rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 1.75rem;
+  --radius-full: 999px;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  /* Type ramp */
+  --font-family-sans:
+    ui-sans-serif, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", sans-serif;
+  --type-display-large: 700 clamp(3rem, 6vw, 5.5rem) / 0.96 var(--font-family-sans);
+  --type-display-medium: 700 clamp(2.6rem, 5vw, 4.5rem) / 1 var(--font-family-sans);
+  --type-display-small: 700 clamp(2.2rem, 4vw, 3.6rem) / 1.04 var(--font-family-sans);
+  --type-headline-large: 650 clamp(2rem, 4vw, 3.25rem) / 1.02 var(--font-family-sans);
+  --type-headline-medium: 650 clamp(1.6rem, 3vw, 2.4rem) / 1.08 var(--font-family-sans);
+  --type-headline-small: 650 1.45rem / 1.12 var(--font-family-sans);
+  --type-title-large: 600 1.375rem / 1.2 var(--font-family-sans);
+  --type-title-medium: 600 1rem / 1.3 var(--font-family-sans);
+  --type-title-small: 600 0.875rem / 1.25 var(--font-family-sans);
+  --type-body-large: 450 1rem / 1.6 var(--font-family-sans);
+  --type-body-medium: 430 0.9375rem / 1.55 var(--font-family-sans);
+  --type-body-small: 430 0.8125rem / 1.45 var(--font-family-sans);
+  --type-label-large: 600 0.95rem / 1.25 var(--font-family-sans);
+  --type-label-medium: 600 0.8rem / 1.25 var(--font-family-sans);
+  --type-label-small: 600 0.7rem / 1.2 var(--font-family-sans);
+
+  /* Motion */
+  --motion-fast:   160ms cubic-bezier(0.2, 0, 0, 1);
+  --motion-medium: 260ms cubic-bezier(0.2, 0, 0, 1);
+  --motion-slow:   400ms cubic-bezier(0.2, 0, 0, 1);
+}
+}

@@ -1,0 +1,310 @@
+@layer surface-system.tokens {
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-primary: var(--palette-primary-80);
+  --color-on-primary: var(--palette-primary-20);
+  --color-primary-container: var(--palette-primary-30);
+  --color-on-primary-container: var(--palette-primary-90);
+
+  --color-secondary: var(--palette-secondary-80);
+  --color-on-secondary: var(--palette-secondary-20);
+  --color-secondary-container: var(--palette-secondary-30);
+  --color-on-secondary-container: var(--palette-secondary-90);
+
+  --color-tertiary: var(--palette-tertiary-80);
+  --color-on-tertiary: var(--palette-tertiary-20);
+  --color-tertiary-container: var(--palette-tertiary-30);
+  --color-on-tertiary-container: var(--palette-tertiary-90);
+
+  --color-error: var(--palette-error-80);
+  --color-on-error: var(--palette-error-20);
+  --color-error-container: var(--palette-error-30);
+  --color-on-error-container: var(--palette-error-90);
+
+  --color-success: var(--palette-success-80);
+  --color-on-success: var(--palette-success-20);
+  --color-success-container: var(--palette-success-30);
+  --color-on-success-container: var(--palette-success-90);
+
+  --color-warning: var(--palette-warning-80);
+  --color-on-warning: var(--palette-warning-20);
+  --color-warning-container: var(--palette-warning-30);
+  --color-on-warning-container: var(--palette-warning-90);
+
+  --color-info: var(--palette-info-80);
+  --color-on-info: var(--palette-info-20);
+  --color-info-container: var(--palette-info-30);
+  --color-on-info-container: var(--palette-info-90);
+
+  --color-background: var(--palette-neutral-6);
+  --color-on-background: var(--palette-neutral-90);
+  --color-surface: var(--palette-neutral-6);
+  --color-surface-dim: var(--palette-neutral-4);
+  --color-surface-bright: var(--palette-neutral-24);
+  --color-surface-container-lowest: var(--palette-neutral-4);
+  --color-surface-container-low: var(--palette-neutral-10);
+  --color-surface-container: var(--palette-neutral-12);
+  --color-surface-container-high: var(--palette-neutral-17);
+  --color-surface-container-highest: var(--palette-neutral-22);
+  --color-surface-variant: var(--palette-neutral-variant-30);
+  --color-on-surface: var(--palette-neutral-90);
+  --color-on-surface-variant: var(--palette-neutral-variant-80);
+  --color-outline: var(--palette-neutral-variant-60);
+  --color-outline-variant: var(--palette-neutral-variant-30);
+
+  --color-inverse-surface: var(--palette-neutral-90);
+  --color-inverse-on-surface: var(--palette-neutral-20);
+  --color-inverse-primary: var(--palette-primary-40);
+  --color-surface-tint: var(--color-primary);
+  --color-shadow: var(--palette-neutral-0);
+  --color-scrim: var(--palette-neutral-0);
+
+  /*
+   * Preserve your working layer model rather than exposing Material container
+   * terminology directly to component authors.
+   */
+  --layer-backdrop: var(--color-background);
+  --layer-surface: var(--palette-neutral-10);
+  --layer-surface-1: var(--palette-neutral-12);
+  --layer-surface-2: var(--palette-neutral-17);
+  --layer-surface-3: var(--palette-neutral-22);
+  --layer-surface-4: var(--palette-neutral-24);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --color-primary: var(--palette-primary-80);
+    --color-on-primary: var(--palette-primary-20);
+    --color-primary-container: var(--palette-primary-30);
+    --color-on-primary-container: var(--palette-primary-90);
+
+    --color-secondary: var(--palette-secondary-80);
+    --color-on-secondary: var(--palette-secondary-20);
+    --color-secondary-container: var(--palette-secondary-30);
+    --color-on-secondary-container: var(--palette-secondary-90);
+
+    --color-tertiary: var(--palette-tertiary-80);
+    --color-on-tertiary: var(--palette-tertiary-20);
+    --color-tertiary-container: var(--palette-tertiary-30);
+    --color-on-tertiary-container: var(--palette-tertiary-90);
+
+    --color-error: var(--palette-error-80);
+    --color-on-error: var(--palette-error-20);
+    --color-error-container: var(--palette-error-30);
+    --color-on-error-container: var(--palette-error-90);
+
+    --color-success: var(--palette-success-80);
+    --color-on-success: var(--palette-success-20);
+    --color-success-container: var(--palette-success-30);
+    --color-on-success-container: var(--palette-success-90);
+
+    --color-warning: var(--palette-warning-80);
+    --color-on-warning: var(--palette-warning-20);
+    --color-warning-container: var(--palette-warning-30);
+    --color-on-warning-container: var(--palette-warning-90);
+
+    --color-info: var(--palette-info-80);
+    --color-on-info: var(--palette-info-20);
+    --color-info-container: var(--palette-info-30);
+    --color-on-info-container: var(--palette-info-90);
+
+    --color-background: var(--palette-neutral-6);
+    --color-on-background: var(--palette-neutral-90);
+    --color-surface: var(--palette-neutral-6);
+    --color-surface-dim: var(--palette-neutral-4);
+    --color-surface-bright: var(--palette-neutral-24);
+    --color-surface-container-lowest: var(--palette-neutral-4);
+    --color-surface-container-low: var(--palette-neutral-10);
+    --color-surface-container: var(--palette-neutral-12);
+    --color-surface-container-high: var(--palette-neutral-17);
+    --color-surface-container-highest: var(--palette-neutral-22);
+    --color-surface-variant: var(--palette-neutral-variant-30);
+    --color-on-surface: var(--palette-neutral-90);
+    --color-on-surface-variant: var(--palette-neutral-variant-80);
+    --color-outline: var(--palette-neutral-variant-60);
+    --color-outline-variant: var(--palette-neutral-variant-30);
+
+    --color-inverse-surface: var(--palette-neutral-90);
+    --color-inverse-on-surface: var(--palette-neutral-20);
+    --color-inverse-primary: var(--palette-primary-40);
+    --color-surface-tint: var(--color-primary);
+    --color-shadow: var(--palette-neutral-0);
+    --color-scrim: var(--palette-neutral-0);
+
+    --layer-backdrop: var(--color-background);
+    --layer-surface: var(--palette-neutral-10);
+    --layer-surface-1: var(--palette-neutral-12);
+    --layer-surface-2: var(--palette-neutral-17);
+    --layer-surface-3: var(--palette-neutral-22);
+    --layer-surface-4: var(--palette-neutral-24);
+  }
+}
+
+/*
+ * ── High-contrast mode ────────────────────────────────────────────────────
+ *
+ * Remaps roles to maximise contrast ratios toward WCAG AAA (7:1 for text,
+ * 4.5:1 for interactive elements). Uses the darkest/lightest tones in each
+ * palette to push foreground/background pairs apart.
+ *
+ * Applied by either:
+ *   1. System preference:  @media (prefers-contrast: more)
+ *   2. Manual toggle:      data-contrast="high" on <html>
+ *
+ * Combine with dark mode:  [data-theme="dark"][data-contrast="high"]
+ * The manual toggle wins over the media query due to unlayered cascade.
+ */
+
+/* Light + high contrast */
+@media (prefers-contrast: more) {
+  :root:not([data-theme="dark"]):not([data-contrast="low"]) {
+    --color-primary:   var(--palette-primary-30);
+    --color-on-primary: var(--palette-primary-100);
+    --color-primary-container: var(--palette-primary-20);
+    --color-on-primary-container: var(--palette-primary-100);
+
+    --color-secondary: var(--palette-secondary-30);
+    --color-on-secondary: var(--palette-secondary-100);
+    --color-secondary-container: var(--palette-secondary-20);
+    --color-on-secondary-container: var(--palette-secondary-100);
+
+    --color-tertiary: var(--palette-tertiary-30);
+    --color-on-tertiary: var(--palette-tertiary-100);
+    --color-tertiary-container: var(--palette-tertiary-20);
+    --color-on-tertiary-container: var(--palette-tertiary-100);
+
+    --color-error: var(--palette-error-30);
+    --color-on-error: var(--palette-error-100);
+    --color-error-container: var(--palette-error-20);
+    --color-on-error-container: var(--palette-error-100);
+
+    --color-success: var(--palette-success-30);
+    --color-on-success: var(--palette-success-100);
+    --color-warning: var(--palette-warning-40);
+    --color-on-warning: var(--palette-warning-0);
+    --color-info: var(--palette-info-30);
+    --color-on-info: var(--palette-info-100);
+
+    --color-on-surface: var(--palette-neutral-0);
+    --color-on-surface-variant: var(--palette-neutral-10);
+    --color-outline: var(--palette-neutral-10);
+    --color-outline-variant: var(--palette-neutral-30);
+  }
+}
+
+[data-contrast="high"]:not([data-theme="dark"]) {
+  --color-primary:   var(--palette-primary-30);
+  --color-on-primary: var(--palette-primary-100);
+  --color-primary-container: var(--palette-primary-20);
+  --color-on-primary-container: var(--palette-primary-100);
+
+  --color-secondary: var(--palette-secondary-30);
+  --color-on-secondary: var(--palette-secondary-100);
+  --color-secondary-container: var(--palette-secondary-20);
+  --color-on-secondary-container: var(--palette-secondary-100);
+
+  --color-tertiary: var(--palette-tertiary-30);
+  --color-on-tertiary: var(--palette-tertiary-100);
+  --color-tertiary-container: var(--palette-tertiary-20);
+  --color-on-tertiary-container: var(--palette-tertiary-100);
+
+  --color-error: var(--palette-error-30);
+  --color-on-error: var(--palette-error-100);
+  --color-error-container: var(--palette-error-20);
+  --color-on-error-container: var(--palette-error-100);
+
+  --color-success: var(--palette-success-30);
+  --color-on-success: var(--palette-success-100);
+  --color-warning: var(--palette-warning-40);
+  --color-on-warning: var(--palette-warning-0);
+  --color-info: var(--palette-info-30);
+  --color-on-info: var(--palette-info-100);
+
+  --color-on-surface: var(--palette-neutral-0);
+  --color-on-surface-variant: var(--palette-neutral-10);
+  --color-outline: var(--palette-neutral-10);
+  --color-outline-variant: var(--palette-neutral-30);
+}
+
+/* Dark + high contrast */
+@media (prefers-contrast: more) {
+  :root[data-theme="dark"],
+  :root:not([data-theme="light"]) {
+    --color-primary:   var(--palette-primary-90);
+    --color-on-primary: var(--palette-primary-10);
+    --color-primary-container: var(--palette-primary-95);
+    --color-on-primary-container: var(--palette-primary-0);
+
+    --color-secondary: var(--palette-secondary-90);
+    --color-on-secondary: var(--palette-secondary-10);
+    --color-secondary-container: var(--palette-secondary-95);
+    --color-on-secondary-container: var(--palette-secondary-0);
+
+    --color-tertiary: var(--palette-tertiary-90);
+    --color-on-tertiary: var(--palette-tertiary-10);
+    --color-tertiary-container: var(--palette-tertiary-95);
+    --color-on-tertiary-container: var(--palette-tertiary-0);
+
+    --color-error: var(--palette-error-90);
+    --color-on-error: var(--palette-error-10);
+    --color-error-container: var(--palette-error-95);
+    --color-on-error-container: var(--palette-error-0);
+
+    --color-success: var(--palette-success-90);
+    --color-on-success: var(--palette-success-10);
+    --color-warning: var(--palette-warning-90);
+    --color-on-warning: var(--palette-warning-10);
+    --color-info: var(--palette-info-90);
+    --color-on-info: var(--palette-info-10);
+
+    --color-on-surface: var(--palette-neutral-100);
+    --color-on-surface-variant: var(--palette-neutral-90);
+    --color-outline: var(--palette-neutral-80);
+    --color-outline-variant: var(--palette-neutral-60);
+  }
+}
+
+[data-contrast="high"][data-theme="dark"],
+[data-contrast="high"]:not([data-theme="light"]) {
+  --color-primary:   var(--palette-primary-90);
+  --color-on-primary: var(--palette-primary-10);
+  --color-primary-container: var(--palette-primary-95);
+  --color-on-primary-container: var(--palette-primary-0);
+
+  --color-secondary: var(--palette-secondary-90);
+  --color-on-secondary: var(--palette-secondary-10);
+  --color-secondary-container: var(--palette-secondary-95);
+  --color-on-secondary-container: var(--palette-secondary-0);
+
+  --color-tertiary: var(--palette-tertiary-90);
+  --color-on-tertiary: var(--palette-tertiary-10);
+  --color-tertiary-container: var(--palette-tertiary-95);
+  --color-on-tertiary-container: var(--palette-tertiary-0);
+
+  --color-error: var(--palette-error-90);
+  --color-on-error: var(--palette-error-10);
+  --color-error-container: var(--palette-error-95);
+  --color-on-error-container: var(--palette-error-0);
+
+  --color-success: var(--palette-success-90);
+  --color-on-success: var(--palette-success-10);
+  --color-warning: var(--palette-warning-90);
+  --color-on-warning: var(--palette-warning-10);
+  --color-info: var(--palette-info-90);
+  --color-on-info: var(--palette-info-10);
+
+  --color-on-surface: var(--palette-neutral-100);
+  --color-on-surface-variant: var(--palette-neutral-90);
+  --color-outline: var(--palette-neutral-80);
+  --color-outline-variant: var(--palette-neutral-60);
+}
+
+} /* end @layer surface-system.tokens */

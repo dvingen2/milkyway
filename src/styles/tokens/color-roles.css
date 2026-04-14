@@ -1,0 +1,91 @@
+@layer surface-system.tokens {
+:root {
+  /*
+   * Semantic color roles are the stable interface that components consume.
+   * Modes remap tones to these roles in color-modes.css.
+   */
+
+  /* Light mode semantic roles */
+  --color-primary: var(--palette-primary-40);
+  --color-on-primary: var(--palette-primary-100);
+  --color-primary-container: var(--palette-primary-90);
+  --color-on-primary-container: var(--palette-primary-10);
+  --color-primary-fixed: var(--palette-primary-90);
+  --color-primary-fixed-dim: var(--palette-primary-80);
+  --color-on-primary-fixed: var(--palette-primary-10);
+  --color-on-primary-fixed-variant: var(--palette-primary-30);
+
+  --color-secondary: var(--palette-secondary-40);
+  --color-on-secondary: var(--palette-secondary-100);
+  --color-secondary-container: var(--palette-secondary-90);
+  --color-on-secondary-container: var(--palette-secondary-10);
+  --color-secondary-fixed: var(--palette-secondary-90);
+  --color-secondary-fixed-dim: var(--palette-secondary-80);
+  --color-on-secondary-fixed: var(--palette-secondary-10);
+  --color-on-secondary-fixed-variant: var(--palette-secondary-30);
+
+  --color-tertiary: var(--palette-tertiary-40);
+  --color-on-tertiary: var(--palette-tertiary-100);
+  --color-tertiary-container: var(--palette-tertiary-90);
+  --color-on-tertiary-container: var(--palette-tertiary-10);
+  --color-tertiary-fixed: var(--palette-tertiary-90);
+  --color-tertiary-fixed-dim: var(--palette-tertiary-80);
+  --color-on-tertiary-fixed: var(--palette-tertiary-10);
+  --color-on-tertiary-fixed-variant: var(--palette-tertiary-30);
+
+  --color-error: var(--palette-error-40);
+  --color-on-error: var(--palette-error-100);
+  --color-error-container: var(--palette-error-90);
+  --color-on-error-container: var(--palette-error-10);
+
+  --color-success: var(--palette-success-40);
+  --color-on-success: var(--palette-success-100);
+  --color-success-container: var(--palette-success-90);
+  --color-on-success-container: var(--palette-success-10);
+
+  --color-warning: var(--palette-warning-70);
+  --color-on-warning: var(--palette-warning-10);
+  --color-warning-container: var(--palette-warning-90);
+  --color-on-warning-container: var(--palette-warning-20);
+
+  --color-info: var(--palette-info-40);
+  --color-on-info: var(--palette-info-100);
+  --color-info-container: var(--palette-info-90);
+  --color-on-info-container: var(--palette-info-10);
+
+  --color-background: var(--palette-neutral-98);
+  --color-on-background: var(--palette-neutral-10);
+  --color-surface: var(--palette-neutral-98);
+  --color-surface-dim: var(--palette-neutral-87);
+  --color-surface-bright: var(--palette-neutral-98);
+  --color-surface-container-lowest: var(--palette-neutral-100);
+  --color-surface-container-low: var(--palette-neutral-96);
+  --color-surface-container: var(--palette-neutral-94);
+  --color-surface-container-high: var(--palette-neutral-92);
+  --color-surface-container-highest: var(--palette-neutral-90);
+  --color-surface-variant: var(--palette-neutral-variant-90);
+  --color-on-surface: var(--palette-neutral-10);
+  --color-on-surface-variant: var(--palette-neutral-variant-30);
+  --color-outline: var(--palette-neutral-variant-50);
+  --color-outline-variant: var(--palette-neutral-variant-80);
+
+  --color-inverse-surface: var(--palette-neutral-20);
+  --color-inverse-on-surface: var(--palette-neutral-95);
+  --color-inverse-primary: var(--palette-primary-80);
+  --color-surface-tint: var(--color-primary);
+  --color-shadow: var(--palette-neutral-0);
+  --color-scrim: var(--palette-neutral-0);
+
+  /*
+   * Working surface aliases.
+   * These are the project-specific naming layer you prefer over Material's
+   * lowest/low/high/highest terminology.
+   */
+  --layer-backdrop: var(--color-background);
+  --layer-surface: var(--color-surface-container-lowest);
+  --layer-surface-1: var(--color-surface-container-low);
+  --layer-surface-2: var(--color-surface-container);
+  --layer-surface-3: var(--color-surface-container-high);
+  --layer-surface-4: var(--color-surface-container-highest);
+}
+}

@@ -1,0 +1,41 @@
+{
+  "name": "milkyway",
+  "version": "1.0.0",
+  "description": "Milkyway design system — Web Components, oklch color tokens, Storybook documentation.",
+  "scripts": {
+    "dev": "node ./scripts/run-vite.mjs",
+    "build": "vite build",
+    "build:lib": "vite build --mode lib",
+    "storybook": "node ./scripts/run-storybook.mjs",
+    "build-storybook": "storybook build"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/milkyway.js"
+    },
+    "./styles": "./dist/milkyway.css",
+    "./tokens": "./src/styles/tokens.css",
+    "./components/*": "./src/components/*.js"
+  },
+  "files": [
+    "dist",
+    "src/styles",
+    "src/components"
+  ],
+  "keywords": [
+    "design-system",
+    "storybook",
+    "web-components",
+    "vanilla-js"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@storybook/addon-a11y": "^10.3.3",
+    "@storybook/addon-docs": "^10.3.3",
+    "@storybook/web-components-vite": "^10.3.3",
+    "storybook": "^10.3.3",
+    "vite": "^8.0.3"
+  }
+}

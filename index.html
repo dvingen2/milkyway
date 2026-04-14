@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surface System Documentation</title>
+    <meta
+      name="description"
+      content="Et rent designsystem-site med dokumentasjon for tokens, surface-hierarki, states og komponenter."
+    />
+    <link rel="stylesheet" href="./src/styles/tokens.css" />
+    <link rel="stylesheet" href="./src/styles/base.css" />
+    <link rel="stylesheet" href="./src/styles/components.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <p class="eyebrow">Designsystem / Dokumentasjon</p>
+        <ds-top-app-bar headline="Surface System">
+          <span slot="leading" class="app-bar-support">Living spec</span>
+          <ds-badge slot="trailing" value="M3"></ds-badge>
+          <ds-menu
+            slot="trailing"
+            label="Hurtigvalg"
+            items='[
+              {"label":"Oversikt","supporting":"Dokumentasjonsmoduler","href":"#oversikt"},
+              {"label":"Komponenter","supporting":"Åpne referansebiblioteket","href":"#komponenter"},
+              {"label":"Roadmap","supporting":"Neste steg i systemet","href":"#roadmap"}
+            ]'
+          ></ds-menu>
+        </ds-top-app-bar>
+        <ds-tabs
+          items='[
+            {"label":"Oversikt","icon":"◌","href":"#oversikt","active":true},
+            {"label":"Fundament","icon":"△","href":"#fundament"},
+            {"label":"Tokens","icon":"◫","href":"#tokens"},
+            {"label":"States","icon":"◎","href":"#states"},
+            {"label":"Komponenter","icon":"⌘","href":"#komponenter"},
+            {"label":"Roadmap","icon":"→","href":"#roadmap"}
+          ]'
+        ></ds-tabs>
+      </header>
+
+      <div class="docs-layout">
+        <aside class="docs-sidebar">
+          <ds-navigation-rail
+            items='[
+              {"icon":"◌","label":"Oversikt","href":"#oversikt","active":true},
+              {"icon":"△","label":"Fundament","href":"#fundament"},
+              {"icon":"◫","label":"Tokens","href":"#tokens"},
+              {"icon":"◎","label":"States","href":"#states"},
+              {"icon":"⌘","label":"Komponenter","href":"#komponenter"},
+              {"icon":"→","label":"Roadmap","href":"#roadmap"}
+            ]'
+          ></ds-navigation-rail>
+          <ds-card variant="outlined" class="sidebar-card">
+            <p class="card-label">Arbeidsmodell</p>
+            <h3>Backdrop, surface og eksplisitte lag</h3>
+            <p>Dokumentasjonen beskriver systemet som et sett med navngitte flater, state-lag og portable webkomponenter.</p>
+          </ds-card>
+          <ds-list
+            items='[
+              {"headline":"Tokens","supporting":"Fargeroller, surface hierarchy og semantiske aliaser","leading":"◫"},
+              {"headline":"States","supporting":"Hover, focus, pressed, selection og activation","leading":"◎"},
+              {"headline":"Komponenter","supporting":"Referanser, previews og anatomy","leading":"⌘"}
+            ]'
+          ></ds-list>
+        </aside>
+
+        <main>
+        <section class="hero panel">
+          <div class="hero-copy">
+            <p class="eyebrow">Living Spec / HTML / CSS / Vanilla JavaScript</p>
+            <h2>Et designsystem-site bygget som ren dokumentasjon av tokens, semantikk og komponenter.</h2>
+            <p class="lede">
+              Denne dokumentasjonen beskriver systemets kjerne: brand palette, tonale skalaer,
+              surface-hierarki, state layers og modulære webkomponenter. Målet er at dokumentasjonen
+              selv skal være den primære inngangen til systemet.
+            </p>
+            <div class="hero-actions">
+              <ds-button variant="filled" href="#fundament">Les fundamentet</ds-button>
+              <ds-button variant="tonal" href="#komponenter">Se komponenter</ds-button>
+              <ds-icon-button aria-label="Hopp til roadmap" title="Roadmap">→</ds-icon-button>
+            </div>
+            <div class="chip-row">
+              <ds-chip selected>Semantiske flater</ds-chip>
+              <ds-chip>Surface hierarchy</ds-chip>
+              <ds-chip>Portabel frontend</ds-chip>
+            </div>
+          </div>
+          <ds-card variant="elevated" class="hero-card">
+            <p class="card-label">Kjernetesen</p>
+            <h3>Digitale flater er meningsbærende objekter.</h3>
+            <p>
+              Systemet modellerer komponenter som overflater med eksplisitte roller, tydelig kontrast
+              og separerte state-lag, slik at mening og adferd kan dokumenteres og gjenbrukes.
+            </p>
+          </ds-card>
+        </section>
+
+        <section id="oversikt" class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Dokumentasjonsområder</p>
+            <h2>Systemet er strukturert som et sett med lesbare kunnskapsmoduler</h2>
+          </div>
+          <div class="project-grid" id="project-grid"></div>
+        </section>
+
+        <section id="fundament" class="section panel">
+          <div class="section-heading">
+            <p class="eyebrow">Fundament</p>
+            <h2>Arkitekturen går fra råmateriale til meningsbærende komponent</h2>
+          </div>
+          <div class="system-grid">
+            <ds-card variant="filled" class="info-card">
+              <h3>1. Brand palette</h3>
+              <p>
+                Systemets råmateriale er en nøytral ambient gråbase med teal som primær aksent og
+                lilla som sparsom tertiær støtte.
+              </p>
+            </ds-card>
+            <ds-card variant="filled" class="info-card">
+              <h3>2. Tonale skalaer</h3>
+              <p>
+                Tonale skalaer avleder semantiske fargeroller som <code>--color-primary</code> og et
+                enklere hierarki av
+                <code>--layer-backdrop</code>, <code>--layer-surface</code> og
+                <code>--layer-surface-1..4</code>.
+              </p>
+            </ds-card>
+            <ds-card variant="filled" class="info-card">
+              <h3>3. Roller og states</h3>
+              <p>
+                Innhold, overflater, outline og state layers skilles, slik at hover, focus, pressed,
+                selection og activation kan eksistere side om side uten semantisk støy.
+              </p>
+            </ds-card>
+            <ds-card variant="filled" class="info-card">
+              <h3>4. Komponenter</h3>
+              <p>
+                Web components kapsler interaksjon og markup, mens tokens og regler forblir globale,
+                lesbare og portable.
+              </p>
+            </ds-card>
+          </div>
+          <div class="note-grid">
+            <ds-card variant="outlined" class="note-card">
+              <h3>Selection vs activation</h3>
+              <p>
+                <strong>Activation</strong> behandles som et handlingssignal, mens
+                <strong>selection</strong> er en vedvarende informasjonstilstand. Dokumentasjonen
+                skiller derfor eksplisitt mellom disse to lagene.
+              </p>
+            </ds-card>
+            <ds-card variant="outlined" class="note-card">
+              <h3>Dokumentasjonsprinsipp</h3>
+              <ul>
+                <li>Dokumentasjonen beskriver systemets hvorfor, ikke bare dets hvordan</li>
+                <li>Alle tokens skal kunne spores til et tydelig semantisk formål</li>
+                <li>Komponenter skal dokumenteres med anatomy, varianter og state-intensjon</li>
+              </ul>
+            </ds-card>
+          </div>
+        </section>
+
+        <section id="tokens" class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Design Tokens</p>
+            <h2>Fra rå fargevalg til eksplisitt systemlogikk</h2>
+            <p class="lede">
+              Denne delen dokumenterer hvordan rå fargevalg transformeres til roller og surface-nivåer
+              som resten av systemet er bygget på.
+            </p>
+          </div>
+          <div class="token-layout">
+            <article class="panel token-panel">
+              <div class="token-panel-header">
+                <div>
+                  <p class="card-label">Key colors</p>
+                  <h3>Identifiserbare innganger til fargesystemet</h3>
+                </div>
+                <p class="token-kicker">Lag 1</p>
+              </div>
+              <div class="swatch-grid" id="key-color-grid"></div>
+            </article>
+            <article class="panel token-panel">
+              <div class="token-panel-header">
+                <div>
+                  <p class="card-label">Tonal palettes</p>
+                  <h3>Eksplisitte tonale skalaer fra 0 til 100</h3>
+                </div>
+                <p class="token-kicker">Lag 2</p>
+              </div>
+              <div class="palette-grid" id="tonal-palette-grid"></div>
+            </article>
+            <article class="panel token-panel">
+              <div class="token-panel-header">
+                <div>
+                  <p class="card-label">Semantic roles</p>
+                  <h3>Roller som komponentene faktisk forholder seg til</h3>
+                </div>
+                <p class="token-kicker">Lag 3</p>
+              </div>
+              <div class="role-grid" id="role-grid"></div>
+            </article>
+          </div>
+          <ds-card variant="outlined" class="token-architecture-card">
+            <p class="card-label">Customization</p>
+            <h3>Hvordan systemet tilpasses nye produkter</h3>
+            <ol class="spec-list" id="color-customization-list"></ol>
+          </ds-card>
+        </section>
+
+        <section id="states" class="section panel">
+          <div class="section-heading">
+            <p class="eyebrow">State Semantics</p>
+            <h2>State layers dokumenterer respons, fokus og vedvarende tilstand</h2>
+          </div>
+          <div class="state-layout">
+            <div class="state-grid" id="state-grid"></div>
+            <article class="state-spec-card">
+              <p class="card-label">State Model</p>
+              <h3>Surface → content → interactive layer → selection/activation</h3>
+              <p>
+                Dokumentasjonen skiller state-lagene fra overflatelagene. Basissurface bærer kontekst,
+                innholdslaget bærer lesbarhet, og state-lagene uttrykker respons og vedvarende tilstand.
+              </p>
+              <ol class="spec-list">
+                <li>Bruk hover og focus som tilbakemelding på mulighet og oppmerksomhet.</li>
+                <li>Bruk activation for handling eller toggled energi.</li>
+                <li>Bruk selection for vedvarende valgt tilstand, filtrering eller aktiv kontekst.</li>
+              </ol>
+            </article>
+          </div>
+        </section>
+
+        <section id="komponenter" class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Komponentbibliotek</p>
+            <h2>Komponentene dokumenteres som navngitte byggesteiner</h2>
+          </div>
+
+          <div class="component-showcase">
+            <ds-card variant="filled" class="demo-card">
+              <h3>Button family</h3>
+              <div class="demo-row">
+                <ds-button variant="elevated">Elevated</ds-button>
+                <ds-button variant="filled">Filled</ds-button>
+                <ds-button variant="tonal">Tonal</ds-button>
+                <ds-button variant="outlined">Outlined</ds-button>
+                <ds-button variant="text">Text</ds-button>
+                <ds-button variant="destructive">Destructive</ds-button>
+              </div>
+            </ds-card>
+
+            <ds-card variant="filled" class="demo-card">
+              <h3>Text field</h3>
+              <div class="demo-stack">
+                <ds-text-field
+                  label="Token group"
+                  leading="◫"
+                  trailing="✓"
+                  helper="Alias layer over Material roles"
+                  value="Surface hierarchy"
+                ></ds-text-field>
+                <ds-text-field
+                  label="Documentation note"
+                  multiline
+                  helper="Living spec note"
+                  value="Surface-nivåene skiller ambient base fra primære og sekundære innholdsflater."
+                ></ds-text-field>
+              </div>
+            </ds-card>
+
+            <ds-card variant="filled" class="demo-card">
+              <h3>Selection controls</h3>
+              <div class="selection-list">
+                <ds-checkbox checked label="Dokumentert komponentvariant med valgt tilstand"></ds-checkbox>
+                <ds-radio checked name="focus-area" label="Aktiv state-modell for valgt dokumentasjonsretning"></ds-radio>
+                <ds-switch checked label="Vedvarende systeminnstilling"></ds-switch>
+              </div>
+            </ds-card>
+
+            <ds-card variant="filled" class="demo-card">
+              <h3>Komponentprinsipper</h3>
+              <div class="principle-list" id="principle-list"></div>
+            </ds-card>
+          </div>
+
+          <div class="section-heading">
+            <p class="eyebrow">Component Reference</p>
+            <h2>Kjernekomponenter som spesifiserte og dokumenterte byggesteiner</h2>
+            <p class="lede">
+              Hver komponent beskrives med formål, anatomy, varianter og tilstander. Denne delen er
+              ment å vokse til å bli referansebiblioteket for hele systemet.
+            </p>
+          </div>
+          <div class="component-reference-list" id="component-reference-list"></div>
+        </section>
+
+        <section id="roadmap" class="section panel contact-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Roadmap</p>
+            <h2>Veien videre for systemet dokumenteres som åpne neste steg</h2>
+          </div>
+          <p class="lede">
+            Neste iterasjoner bør utdype primitives, utvide komponentbiblioteket, raffinere
+            surface-modellen og gradvis innføre motion der det styrker semantikken.
+          </p>
+          <div class="hero-actions">
+            <ds-button variant="filled" href="#tokens">Åpne tokens</ds-button>
+            <ds-button variant="outlined" href="#komponenter">Åpne komponenter</ds-button>
+          </div>
+        </section>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

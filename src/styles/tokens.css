@@ -1,0 +1,12 @@
+/*
+ * Declare layer order first so the cascade is predictable.
+ * surface-system.tokens < surface-system.base < unlayered (consumer styles).
+ * Consuming projects override tokens with unlayered :root {} rules.
+ */
+@layer surface-system.tokens, surface-system.base;
+
+@import "./tokens/color-keys.css";
+@import "./tokens/tonal-palettes.css";
+@import "./tokens/color-roles.css";
+@import "./tokens/color-modes.css";
+@import "./tokens/system-primitives.css";
