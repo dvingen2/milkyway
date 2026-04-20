@@ -179,8 +179,15 @@ selectTemplate.innerHTML = `
 `;
 
 export class MwSelect extends HTMLElement {
+  static formAssociated = true;
+
+  constructor() {
+    super();
+    this._internals = this.attachInternals();
+  }
+
   static get observedAttributes() {
-    return ["label", "placeholder", "value", "options", "disabled", "supporting", "error"];
+    return ["label", "placeholder", "value", "options", "disabled", "supporting", "error", "required"];
   }
 
   _options = null;
@@ -225,6 +232,12 @@ export class MwSelect extends HTMLElement {
 
   get disabled() { return this.hasAttribute("disabled"); }
   set disabled(v) { v ? this.setAttribute("disabled", "") : this.removeAttribute("disabled"); }
+
+  get required() { return this.hasAttribute("required"); }
+  set required(v) { v ? this.setAttribute("required", "") : this.removeAttribute("required"); }
+
+  get name() { return this.getAttribute("name") ?? ""; }
+  set name(v) { this.setAttribute("name", v); }
 
   _sync() {
     const label = this.shadowRoot?.querySelector("label");
@@ -300,6 +313,13 @@ export class MwSelect extends HTMLElement {
     this.value = val;
     this._close();
     this.shadowRoot.querySelector(".trigger").focus();
+    this._internals.setFormValue(val || null);
+    if (this.required && !val) {
+      this._internals.setValidity({ valueMissing: true }, "Please select an option");
+    } else {
+      this._internals.setValidity({});
+    }
+
     if (val !== prev) {
       const opt = this.options.find((o) => (o.value ?? o.label) === val);
       this.dispatchEvent(new CustomEvent("mw-change", {

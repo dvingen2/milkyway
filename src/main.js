@@ -16,6 +16,7 @@ import "./components/ui-top-app-bar.js";
 import "./components/ui-checkbox.js";
 import "./components/ui-radio.js";
 import "./components/ui-switch.js";
+import "./components/ui-chip-group.js";
 import "./components/ui-fab.js";
 import "./components/ui-extended-fab.js";
 import "./components/ui-tooltip.js";
@@ -44,6 +45,8 @@ const stateGrid = document.querySelector("#state-grid");
 const principleList = document.querySelector("#principle-list");
 const componentReferenceList = document.querySelector("#component-reference-list");
 const colorCustomizationList = document.querySelector("#color-customization-list");
+const componentFamilySidebarNav = document.querySelector("#component-family-sidebar-nav");
+const componentFamilyJumpList = document.querySelector("#component-family-jump-list");
 
 if (grid) {
   grid.innerHTML = sections
@@ -165,6 +168,45 @@ if (principleList) {
 }
 
 if (componentReferenceList) {
+  const componentFamilies = [
+    {
+      key: "action",
+      title: "Action",
+      summary: "Handlinger som driver flyt, opprettelse, bekreftelse eller raske kommandoer.",
+      previews: ["button", "icon-button", "fab", "menu"],
+    },
+    {
+      key: "selection",
+      title: "Selection",
+      summary: "Komponenter for valg, filtrering, toggles og eksplisitte input-beslutninger.",
+      previews: ["chip", "selection-controls", "select", "segmented-button"],
+    },
+    {
+      key: "containment",
+      title: "Containment",
+      summary: "Flater og strukturer som grupperer, separerer og organiserer innhold.",
+      previews: ["card", "divider", "list"],
+    },
+    {
+      key: "navigation",
+      title: "Navigation",
+      summary: "Komponenter som orienterer brukeren mellom seksjoner, destinasjoner og nivåer.",
+      previews: ["top-app-bar", "tabs", "navigation-rail", "navigation-bar"],
+    },
+    {
+      key: "feedback",
+      title: "Feedback",
+      summary: "Systemrespons som status, progress, korte meldinger og lokal hjelp i kontekst.",
+      previews: ["badge", "snackbar", "progress", "tooltip"],
+    },
+    {
+      key: "overlays",
+      title: "Overlays",
+      summary: "Temporære flater som løfter innhold eller handlinger over den aktive visningen.",
+      previews: ["dialog", "bottom-sheet", "side-sheet"],
+    },
+  ];
+
   const previews = {
     button: `
       <div class="component-preview-row">
@@ -199,11 +241,201 @@ if (componentReferenceList) {
         <mw-text-field label="Documentation note" multiline helper="Multiline note" value="Surface-nivåene skiller ambient base fra primære og sekundære innholdsflater."></mw-text-field>
       </div>
     `,
+    "selection-controls": `
+      <div class="component-preview-row" style="align-items: flex-start; flex-direction: column;">
+        <mw-checkbox checked label="Publish tokens"></mw-checkbox>
+        <mw-radio checked name="component-reference-radio" label="CSS variables"></mw-radio>
+        <mw-switch checked label="High contrast"></mw-switch>
+      </div>
+    `,
+    select: `
+      <div class="component-preview-row" style="width: 100%;">
+        <mw-select
+          label="Documentation mode"
+          placeholder="Choose one"
+          value="storybook"
+          options='[{"label":"Storybook","value":"storybook"},{"label":"Static docs","value":"site"},{"label":"Both surfaces","value":"both"}]'
+          supporting="Select remains role-driven and form-friendly."
+        ></mw-select>
+      </div>
+    `,
+    "segmented-button": `
+      <div class="component-preview-row">
+        <mw-segmented-button
+          aria-label="View mode"
+          value="components"
+          options='[{"label":"Foundations","value":"foundations"},{"label":"Components","value":"components"},{"label":"Patterns","value":"patterns"}]'
+        ></mw-segmented-button>
+      </div>
+    `,
+    fab: `
+      <div class="component-preview-row">
+        <mw-fab color="primary" aria-label="Add item">add</mw-fab>
+        <mw-fab color="surface" size="small" aria-label="Edit item">edit</mw-fab>
+        <mw-extended-fab color="secondary" icon="share" label="Share"></mw-extended-fab>
+      </div>
+    `,
+    badge: `
+      <div class="component-preview-row">
+        <div style="position: relative; display: inline-flex;">
+          <mw-icon-button aria-label="Notifications">notifications</mw-icon-button>
+          <mw-badge value="4" style="position: absolute; top: -0.2rem; right: -0.2rem;"></mw-badge>
+        </div>
+        <mw-badge value=""></mw-badge>
+        <mw-badge value="12"></mw-badge>
+      </div>
+    `,
+    card: `
+      <div class="component-preview-row" style="width: 100%; align-items: stretch;">
+        <mw-card variant="filled" style="min-width: 10rem;">
+          <p class="card-label">Filled</p>
+          <p>Default surface for grouped content.</p>
+        </mw-card>
+        <mw-card variant="outlined" style="min-width: 10rem;">
+          <p class="card-label">Outlined</p>
+          <p>Quiet separation with visible edge.</p>
+        </mw-card>
+        <mw-card variant="elevated" style="min-width: 10rem;">
+          <p class="card-label">Elevated</p>
+          <p>Extra emphasis via shadow.</p>
+        </mw-card>
+      </div>
+    `,
+    divider: `
+      <div class="component-preview-row" style="width: 100%; flex-direction: column; align-items: stretch; gap: 0.75rem;">
+        <span>Section header</span>
+        <mw-divider></mw-divider>
+        <span>Inset row</span>
+        <mw-divider inset></mw-divider>
+      </div>
+    `,
+    list: `
+      <div class="component-preview-row" style="width: 100%;">
+        <mw-list items='[
+          {"label":"Foundations","icon":"layers","supporting":"Tokens and hierarchy"},
+          {"label":"Components","icon":"widgets","supporting":"Reference and previews"},
+          {"label":"Theming","icon":"palette","supporting":"Override surfaces and roles"}
+        ]'></mw-list>
+      </div>
+    `,
+    menu: `
+      <div class="component-preview-row">
+        <mw-menu
+          label="Actions"
+          items='[
+            {"label":"Inspect tokens","supporting":"Open foundations"},
+            {"label":"Export CSS","supporting":"Download variables"},
+            {"label":"Delete draft","supporting":"Irreversible","danger":true}
+          ]'
+        ></mw-menu>
+      </div>
+    `,
+    dialog: `
+      <div class="component-preview-row">
+        <mw-button variant="filled">Open dialog</mw-button>
+        <mw-chip kind="assist">Native &lt;dialog&gt;</mw-chip>
+        <mw-chip kind="filter" selected>mw-close</mw-chip>
+        <mw-chip kind="suggestion">Persistent optional</mw-chip>
+      </div>
+    `,
+    "bottom-sheet": `
+      <div class="component-preview-row">
+        <mw-button variant="tonal">Open bottom sheet</mw-button>
+        <mw-chip kind="assist">Mobile actions</mw-chip>
+        <mw-chip kind="suggestion">Scrim + handle</mw-chip>
+      </div>
+    `,
+    "side-sheet": `
+      <div class="component-preview-row">
+        <mw-button variant="outlined">Open side sheet</mw-button>
+        <mw-chip kind="assist">Modal or standard</mw-chip>
+        <mw-chip kind="suggestion">Left or right</mw-chip>
+      </div>
+    `,
+    "top-app-bar": `
+      <div class="component-preview-row" style="width: 100%;">
+        <mw-top-app-bar headline="Milkyway">
+          <mw-icon-button slot="leading" aria-label="Menu">☰</mw-icon-button>
+          <mw-icon-button slot="trailing" aria-label="Search">⌕</mw-icon-button>
+        </mw-top-app-bar>
+      </div>
+    `,
+    tabs: `
+      <div class="component-preview-row" style="width: 100%;">
+        <mw-tabs items='[
+          {"label":"Overview","active":true},
+          {"label":"Components"},
+          {"label":"Roadmap"}
+        ]'></mw-tabs>
+      </div>
+    `,
+    "navigation-rail": `
+      <div class="component-preview-row">
+        <mw-navigation-rail items='[
+          {"icon":"⌂","label":"Home","active":true},
+          {"icon":"◫","label":"Tokens"},
+          {"icon":"⌘","label":"Components"}
+        ]'></mw-navigation-rail>
+      </div>
+    `,
+    "navigation-bar": `
+      <div class="component-preview-row" style="width: 100%;">
+        <mw-navigation-bar items='[
+          {"label":"Home","icon":"home","active":true},
+          {"label":"Search","icon":"search"},
+          {"label":"Docs","icon":"library_books","badge":"3"},
+          {"label":"Profile","icon":"person"}
+        ]'></mw-navigation-bar>
+      </div>
+    `,
+    snackbar: `
+      <div class="component-preview-row" style="width: 100%;">
+        <mw-snackbar message="Tokens saved." action="Undo"></mw-snackbar>
+      </div>
+    `,
+    progress: `
+      <div class="component-preview-row" style="width: 100%;">
+        <div style="display: grid; gap: 0.75rem; width: min(100%, 18rem);">
+          <mw-progress value="0.62"></mw-progress>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <mw-progress kind="circular"></mw-progress>
+            <span>Publishing build…</span>
+          </div>
+        </div>
+      </div>
+    `,
+    tooltip: `
+      <div class="component-preview-row" style="padding-block: 1.5rem;">
+        <mw-tooltip label="Contextual help for a compact action.">
+          <mw-icon-button aria-label="Info">info</mw-icon-button>
+        </mw-tooltip>
+        <mw-tooltip label="Rich tips can explain a token decision." rich>
+          <mw-button variant="outlined">Rich tooltip</mw-button>
+        </mw-tooltip>
+      </div>
+    `,
   };
 
-  componentReferenceList.innerHTML = componentReferences
+  const familyNavMarkup = componentFamilies
     .map(
-        (component) => `
+      (family) => `
+        <a class="component-family-link" href="#components-${family.key}">
+          <span class="component-family-link-title">${family.title}</span>
+          <span class="component-family-link-meta">${family.summary}</span>
+        </a>
+      `,
+    )
+    .join("");
+
+  if (componentFamilySidebarNav) {
+    componentFamilySidebarNav.innerHTML = `<div class="component-family-nav-list">${familyNavMarkup}</div>`;
+  }
+
+  if (componentFamilyJumpList) {
+    componentFamilyJumpList.innerHTML = `<div class="component-family-nav-list component-family-nav-list-inline">${familyNavMarkup}</div>`;
+  }
+
+  const renderComponentCard = (component) => `
         <mw-card variant="elevated" class="component-reference-card">
           <div class="component-reference-header">
             <div>
@@ -258,8 +490,27 @@ if (componentReferenceList) {
             </div>
           </div>
         </mw-card>
-      `,
-    )
+      `;
+
+  componentReferenceList.innerHTML = componentFamilies
+    .map((family) => {
+      const items = componentReferences.filter((component) => family.previews.includes(component.preview));
+      if (!items.length) return "";
+      return `
+        <section class="component-family-group" id="components-${family.key}" data-family="${family.key}">
+          <div class="component-family-header">
+            <div>
+              <p class="eyebrow">Component Family</p>
+              <h3>${family.title}</h3>
+            </div>
+            <p class="component-family-summary">${family.summary}</p>
+          </div>
+          <div class="component-family-list">
+            ${items.map((component) => renderComponentCard(component)).join("")}
+          </div>
+        </section>
+      `;
+    })
     .join("");
 }
 

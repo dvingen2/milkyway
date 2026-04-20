@@ -19,7 +19,7 @@ export default {
     },
   },
   args: {
-    headline: "Surface System",
+    headline: "Milkyway",
   },
   render: ({ headline }) =>
     renderHTML(`

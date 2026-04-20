@@ -9,6 +9,10 @@
     display: inline-flex;
   }
 
+  :where(mw-chip-group) {
+    display: block;
+  }
+
   :where(
     mw-card,
     mw-divider,

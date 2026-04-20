@@ -15,7 +15,7 @@ export default {
     docs: {
       description: {
         component:
-          "Menus present a list of choices in a surface that temporarily overlays the UI. The trigger button opens and closes the menu. Items support an optional supporting-text line and a `danger` flag for destructive actions. Selecting an item fires a `ds-select` event with `{index, item}` in `detail`. Uses `role=menu` + `role=menuitem` ARIA.",
+          "Menus present a list of choices in a surface that temporarily overlays the UI. The trigger button opens and closes the menu. Items support an optional supporting-text line and a `danger` flag for destructive actions. Selecting an item fires a `mw-select` event with `{index, item}` in `detail`. Uses `role=menu` + `role=menuitem` ARIA.",
       },
     },
   },
@@ -67,7 +67,7 @@ export const EventHandling = {
     docs: {
       description: {
         story:
-          "Selecting an item fires `ds-select` with `{index, item}` in `detail`. Open the menu and click an item to see it below.",
+          "Selecting an item fires `mw-select` with `{index, item}` in `detail`. Open the menu and click an item to see it below.",
       },
     },
   },
@@ -83,7 +83,7 @@ export const EventHandling = {
 
     el.querySelector("#demo-menu").addEventListener("mw-select", (e) => {
       el.querySelector("#output").textContent =
-        `ds-select: index ${e.detail.index} — "${e.detail.item.label}"`;
+        `mw-select: index ${e.detail.index} — "${e.detail.item.label}"`;
     });
 
     return el;

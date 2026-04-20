@@ -14,7 +14,7 @@ export default {
     docs: {
       description: {
         component:
-          "Tabs organize content into parallel sections. Only one tab is active at a time. Clicking a tab fires a `ds-change` event with `{index, item}` in `detail`. The `select(index)` method activates a tab programmatically. Items can be passed as the `items` attribute (JSON) or the `items` JS property.",
+          "Tabs organize content into parallel sections. Only one tab is active at a time. Clicking a tab fires a `mw-change` event with `{index, item}` in `detail`. The `select(index)` method activates a tab programmatically. Items can be passed as the `items` attribute (JSON) or the `items` JS property.",
       },
     },
   },
@@ -65,7 +65,7 @@ export const WithContentPanel = {
     docs: {
       description: {
         story:
-          "Typical usage: tab bar above a content region. The `ds-change` event drives which panel is visible.",
+          "Typical usage: tab bar above a content region. The `mw-change` event drives which panel is visible.",
       },
     },
   },

@@ -126,6 +126,26 @@ fieldTemplate.innerHTML = `
     }
 
     .support:empty { display: none; }
+
+    .support-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .char-count {
+      font: var(--type-label-medium);
+      color: var(--color-on-surface-variant);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    :host([error]) .char-count {
+      color: var(--color-error);
+    }
+
+    .char-count:empty { display: none; }
   </style>
   <label>
     <span class="label-text" part="label"></span>
@@ -134,7 +154,10 @@ fieldTemplate.innerHTML = `
       <input class="input" part="input" />
       <span class="affix trailing" part="trailing"></span>
     </div>
-    <span class="support" part="support"></span>
+    <div class="support-row">
+      <span class="support" part="support"></span>
+      <span class="char-count" part="char-count"></span>
+    </div>
   </label>
 `;
 
@@ -147,7 +170,7 @@ export class MwTextField extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ["label", "value", "multiline", "variant", "helper", "error", "leading", "trailing", "placeholder", "name", "disabled", "required"];
+    return ["label", "value", "multiline", "variant", "helper", "error", "leading", "trailing", "placeholder", "name", "disabled", "required", "maxlength"];
   }
 
   connectedCallback() {
@@ -176,6 +199,7 @@ export class MwTextField extends HTMLElement {
     const input = this.shadowRoot.querySelector(".input");
     input.addEventListener("input", () => {
       this._internals.setFormValue(input.value);
+      this._updateCharCount();
       this.dispatchEvent(new Event("input", { bubbles: true, composed: true }));
     });
     input.addEventListener("change", () => {
@@ -219,6 +243,18 @@ export class MwTextField extends HTMLElement {
   get name() { return this.getAttribute("name") ?? ""; }
   set name(v) { this.setAttribute("name", v); }
 
+  get maxlength() { return this.hasAttribute("maxlength") ? Number(this.getAttribute("maxlength")) : null; }
+  set maxlength(v) { v != null ? this.setAttribute("maxlength", v) : this.removeAttribute("maxlength"); }
+
+  _updateCharCount() {
+    const charCount = this.shadowRoot?.querySelector(".char-count");
+    if (!charCount) return;
+    const max = this.maxlength;
+    if (max == null) { charCount.textContent = ""; return; }
+    const current = this.shadowRoot.querySelector(".input")?.value?.length ?? 0;
+    charCount.textContent = `${current} / ${max}`;
+  }
+
   render() {
     const labelText = this.shadowRoot?.querySelector(".label-text");
     const input = this.shadowRoot?.querySelector(".input");
@@ -235,6 +271,7 @@ export class MwTextField extends HTMLElement {
     input.disabled = this.disabled;
     if (this.name) input.name = this.name;
     if (this.required) input.required = true;
+    if (this.maxlength != null) input.maxLength = this.maxlength;
 
     leading.textContent = this.getAttribute("leading") ?? "";
     trailing.textContent = this.error ? this.getAttribute("trailing") ?? "" : this.getAttribute("trailing") ?? "";
@@ -244,6 +281,7 @@ export class MwTextField extends HTMLElement {
     support.textContent = errorText || helperText;
 
     this._internals.setFormValue(input.value);
+    this._updateCharCount();
     if (this.required && !input.value) {
       this._internals.setValidity({ valueMissing: true }, "This field is required", input);
     } else {

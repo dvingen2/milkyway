@@ -18,8 +18,8 @@ export const Overview = {
 
           <div style="display:grid;gap:0.5rem;max-width:44rem;">
             <p class="eyebrow">Theming</p>
-            <h2 style="margin:0;font:var(--type-headline-large);">Customising Surface System</h2>
-            <p class="lede">Surface System uses CSS <code>@layer</code> to give consuming projects automatic cascade priority. Any unlayered rule you write wins over library defaults — no <code>!important</code>, no selector battles.</p>
+            <h2 style="margin:0;font:var(--type-headline-large);">Customising Milkyway</h2>
+            <p class="lede">Milkyway uses CSS <code>@layer</code> to give consuming projects automatic cascade priority. Any unlayered rule you write wins over library defaults — no <code>!important</code>, no selector battles.</p>
           </div>
 
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:1.5rem;">
@@ -38,7 +38,7 @@ export const Overview = {
             </mw-card>
             <mw-card variant="outlined">
               <p class="card-label">Getting started</p>
-              <p>Copy <code>src/styles/theme-template.css</code> into your project and load it after the Surface System stylesheet:</p>
+              <p>Copy <code>src/styles/theme-template.css</code> into your project and load it after the Milkyway stylesheet:</p>
               <pre style="margin:0.75rem 0 0;padding:0.75rem;background:var(--layer-surface-2);border-radius:var(--radius-sm);font-size:0.8rem;overflow-x:auto;line-height:1.6;">&lt;link rel="stylesheet" href="milkyway/styles"&gt;
 &lt;link rel="stylesheet" href="./theme.css"&gt;</pre>
               <p style="margin-top:0.75rem;">Uncomment the variables you want to change. Everything else inherits the library defaults.</p>

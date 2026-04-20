@@ -54,6 +54,14 @@ menuTemplate.innerHTML = `
       background: var(--layer-surface);
       box-shadow: var(--shadow-2);
       z-index: 20;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    /* Flip upward when near bottom of viewport */
+    .menu.flip-up {
+      top: auto;
+      bottom: calc(100% + 0.5rem);
     }
 
     .menu-item {
@@ -106,8 +114,24 @@ export class MwMenu extends HTMLElement {
     if (!this.shadowRoot) {
       this.attachShadow({ mode: "open" });
       this.shadowRoot.appendChild(menuTemplate.content.cloneNode(true));
+
+      // Flip menu upward if it would overflow the viewport bottom
+      const details = this.shadowRoot.querySelector("details");
+      details.addEventListener("toggle", () => {
+        if (details.open) {
+          requestAnimationFrame(() => this._updateMenuPosition());
+        }
+      });
     }
     this.render();
+  }
+
+  _updateMenuPosition() {
+    const menu = this.shadowRoot?.querySelector(".menu");
+    if (!menu) return;
+    const rect = menu.getBoundingClientRect();
+    const overflowsBottom = rect.bottom > (window.innerHeight - 16);
+    menu.classList.toggle("flip-up", overflowsBottom);
   }
 
   attributeChangedCallback() { if (this.shadowRoot) this.render(); }

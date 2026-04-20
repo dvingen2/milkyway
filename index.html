@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Surface System Documentation</title>
+    <title>Milkyway Documentation</title>
     <meta
       name="description"
-      content="Et rent designsystem-site med dokumentasjon for tokens, surface-hierarki, states og komponenter."
+      content="Milkyway er et web component-bibliotek med dokumentasjon for OKLCH-baserte fargetokens, surface-hierarki, states og komponenter."
     />
     <link rel="stylesheet" href="./src/styles/tokens.css" />
     <link rel="stylesheet" href="./src/styles/base.css" />
@@ -16,7 +16,7 @@
     <div class="site-shell">
       <header class="site-header">
         <p class="eyebrow">Designsystem / Dokumentasjon</p>
-        <mw-top-app-bar headline="Surface System">
+        <mw-top-app-bar headline="Milkyway">
           <span slot="leading" class="app-bar-support">Living spec</span>
           <mw-badge slot="trailing" value="M3"></mw-badge>
           <mw-menu
@@ -65,17 +65,22 @@
               {"headline":"Komponenter","supporting":"Referanser, previews og anatomy","leading":"⌘"}
             ]'
           ></mw-list>
+          <mw-card variant="outlined" class="sidebar-card">
+            <p class="card-label">Komponentfamilier</p>
+            <div id="component-family-sidebar-nav"></div>
+          </mw-card>
         </aside>
 
         <main>
         <section class="hero panel">
           <div class="hero-copy">
             <p class="eyebrow">Living Spec / HTML / CSS / Vanilla JavaScript</p>
-            <h2>Et designsystem-site bygget som ren dokumentasjon av tokens, semantikk og komponenter.</h2>
+            <h2>Et komponentbibliotek og designsystem-site bygget som dokumentasjon av tokens, semantikk og webkomponenter.</h2>
             <p class="lede">
-              Denne dokumentasjonen beskriver systemets kjerne: brand palette, tonale skalaer,
-              surface-hierarki, state layers og modulære webkomponenter. Målet er at dokumentasjonen
-              selv skal være den primære inngangen til systemet.
+              Denne dokumentasjonen beskriver systemets kjerne: OKLCH-baserte key components,
+              genererte tonal palettes, semantiske color roles, surface-hierarki, state layers og
+              modulære webkomponenter. Målet er at dokumentasjonen selv skal være den primære
+              inngangen til biblioteket.
             </p>
             <div class="hero-actions">
               <mw-button variant="filled" href="#fundament">Les fundamentet</mw-button>
@@ -113,17 +118,17 @@
           </div>
           <div class="system-grid">
             <mw-card variant="filled" class="info-card">
-              <h3>1. Brand palette</h3>
+              <h3>1. Key color components</h3>
               <p>
-                Systemets råmateriale er en nøytral ambient gråbase med teal som primær aksent og
-                lilla som sparsom tertiær støtte.
+                Systemets råmateriale er noen få OKLCH-komponenter for hue og chroma. Ved å justere
+                disse kan et nytt produkt generere en hel tonal familie uten å tegne hver tone manuelt.
               </p>
             </mw-card>
             <mw-card variant="filled" class="info-card">
               <h3>2. Tonale skalaer</h3>
               <p>
-                Tonale skalaer avleder semantiske fargeroller som <code>--color-primary</code> og et
-                enklere hierarki av
+                Tonal palettes avledes fra key-komponentene og remappes videre til semantiske roller
+                som <code>--color-primary</code> og til et enklere hierarki av
                 <code>--layer-backdrop</code>, <code>--layer-surface</code> og
                 <code>--layer-surface-1..4</code>.
               </p>
@@ -166,10 +171,10 @@
         <section id="tokens" class="section">
           <div class="section-heading">
             <p class="eyebrow">Design Tokens</p>
-            <h2>Fra rå fargevalg til eksplisitt systemlogikk</h2>
+            <h2>Fra key components til semantiske fargeroller</h2>
             <p class="lede">
-              Denne delen dokumenterer hvordan rå fargevalg transformeres til roller og surface-nivåer
-              som resten av systemet er bygget på.
+              Denne delen dokumenterer hvordan noen få key components i OKLCH blir til tonal palettes,
+              semantic roles og surface-nivåer som resten av systemet er bygget på.
             </p>
           </div>
           <div class="token-layout">
@@ -239,6 +244,10 @@
             <p class="eyebrow">Komponentbibliotek</p>
             <h2>Komponentene dokumenteres som navngitte byggesteiner</h2>
           </div>
+          <mw-card variant="outlined" class="component-family-nav-card">
+            <p class="card-label">Quick jump</p>
+            <div id="component-family-jump-list"></div>
+          </mw-card>
 
           <div class="component-showcase">
             <mw-card variant="filled" class="demo-card">

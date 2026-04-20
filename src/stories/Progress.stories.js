@@ -7,7 +7,7 @@ export default {
     docs: {
       description: {
         component:
-          "Progress indicators communicate the status of ongoing processes. The linear variant suits page-level or form-level feedback. The circular variant suits compact spaces like buttons or list items. Both use `role=progressbar` and `aria-valuenow` for screen readers.",
+          "Progress indicators communicate the status of ongoing processes. The linear variant suits page-level or form-level feedback. The circular variant suits compact spaces like buttons or list items. Both use `role=progressbar` and `aria-valuenow` for screen readers. Add `label` for a visible description and `show-percentage` to display the numeric percentage. Add `indeterminate` for operations with unknown duration.",
       },
     },
   },
@@ -19,18 +19,33 @@ export default {
     },
     value: {
       control: { type: "range", min: 0, max: 1, step: 0.01 },
-      description: "Progress from 0 to 1. Only applies to the linear variant.",
+      description: "Progress from 0 to 1.",
+    },
+    label: {
+      control: "text",
+      description: "Visible label above the bar (linear) or beside the spinner (circular).",
+    },
+    "show-percentage": {
+      control: "boolean",
+      description: "Show the numeric percentage alongside the label (linear only).",
+    },
+    indeterminate: {
+      control: "boolean",
+      description: "Animate the bar continuously for unknown-duration operations.",
     },
   },
   args: {
     kind: "linear",
     value: 0.65,
+    label: "",
+    "show-percentage": false,
+    indeterminate: false,
   },
-  render: ({ kind, value }) =>
+  render: ({ kind, value, label, "show-percentage": showPct, indeterminate }) =>
     renderHTML(
       kind === "circular"
-        ? `<mw-progress kind="circular"></mw-progress>`
-        : `<div style="width:24rem;"><mw-progress value="${value}"></mw-progress></div>`,
+        ? `<mw-progress kind="circular" ${label ? `label="${label}"` : ""}></mw-progress>`
+        : `<div style="width:24rem;"><mw-progress value="${value}" ${label ? `label="${label}"` : ""} ${showPct ? "show-percentage" : ""} ${indeterminate ? "indeterminate" : ""}></mw-progress></div>`,
     ),
 };
 
@@ -49,13 +64,46 @@ export const LinearDeterminate = {
     `),
 };
 
+export const WithLabel = {
+  name: "With label and percentage",
+  render: () =>
+    renderHTML(`
+      <div style="display:grid;gap:1.5rem;width:24rem;">
+        <mw-progress label="Uploading files" value="0.42" show-percentage></mw-progress>
+        <mw-progress label="Processing" value="0.78" show-percentage></mw-progress>
+        <mw-progress kind="circular" label="Syncing…"></mw-progress>
+      </div>
+    `),
+};
+
+export const Indeterminate = {
+  name: "Indeterminate",
+  parameters: {
+    docs: {
+      description: {
+        story: "Use `indeterminate` when the operation duration is unknown.",
+      },
+    },
+  },
+  render: () =>
+    renderHTML(`
+      <div style="display:grid;gap:1.5rem;width:24rem;">
+        <mw-progress indeterminate label="Loading…"></mw-progress>
+        <div style="display:flex;gap:1.5rem;align-items:center;">
+          <mw-progress kind="circular"></mw-progress>
+          <span style="font:var(--type-body-medium);color:var(--color-on-surface-variant);">Processing request…</span>
+        </div>
+      </div>
+    `),
+};
+
 export const CircularIndeterminate = {
   name: "Circular — indeterminate",
   render: () =>
     renderHTML(`
       <div style="display:flex;gap:1.5rem;align-items:center;">
         <mw-progress kind="circular"></mw-progress>
-        <span style="font:var(--type-body-medium);color:var(--color-on-surface-variant);">Loading…</span>
+        <mw-progress kind="circular" label="Loading…"></mw-progress>
       </div>
     `),
 };

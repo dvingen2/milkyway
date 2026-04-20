@@ -36,6 +36,7 @@ export { MwTopAppBar }        from "./components/ui-top-app-bar.js";
 export { MwCheckbox }         from "./components/ui-checkbox.js";
 export { MwRadio }            from "./components/ui-radio.js";
 export { MwSwitch }           from "./components/ui-switch.js";
+export { MwChipGroup }        from "./components/ui-chip-group.js";
 export { MwFab }              from "./components/ui-fab.js";
 export { MwExtendedFab }      from "./components/ui-extended-fab.js";
 export { MwTooltip }          from "./components/ui-tooltip.js";
